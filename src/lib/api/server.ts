@@ -4,9 +4,10 @@ let mockData = data;
 export const server = {
   fetch: <IData = any>() => {
     const p = new Promise((res, rej) => {
-      setTimeout(() => res(mockData), 1500);
+      setTimeout(() => res(mockData), 1000);
     });
 
+    // throw new Error('error');
     return p as Promise<IData>;
   },
 

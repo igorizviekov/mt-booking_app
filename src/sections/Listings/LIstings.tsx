@@ -1,5 +1,5 @@
 import React from 'react';
-import { server } from '../../lib/api/index';
+import { server, useQuery } from '../../lib/api/index';
 import { Listing } from './types';
 
 interface ListingsProps {
@@ -7,23 +7,30 @@ interface ListingsProps {
 }
 
 export const Listings: React.FC<ListingsProps> = ({ title }) => {
-  const fetchListings = async () => {
-    console.log(await server.fetch<Listing[]>());
+  const [{ loading, data, error }, refetch] = useQuery<Listing[]>();
+
+  const deleteListing = async (id: string) => {
+    await server.delete(id);
+    refetch();
   };
 
-  const deleteListing = async () => {
-    const id = prompt('id:');
-    if (id) {
-      await server.delete(id);
-    }
-    console.log(await server.fetch<Listing[]>());
-  };
+  const listings = data
+    ? data.map((elem) => {
+        return (
+          <div key={elem.id}>
+            <h2>{elem.title}</h2>
+            <button onClick={() => deleteListing(elem.id)}>delete</button>
+          </div>
+        );
+      })
+    : null;
 
-  return (
-    <>
-      <h1>{title}</h1>
-      <button onClick={fetchListings}>fetch</button>
-      <button onClick={deleteListing}>delete</button>
-    </>
-  );
+  if (error) {
+    return <h1>{'Error'}</h1>;
+  }
+
+  if (loading) {
+    return <h1>loading...</h1>;
+  }
+  return <>{listings}</>;
 };

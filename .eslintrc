@@ -4,9 +4,7 @@
     "no-console": "warn",
     "quotes": ["error", "single"],
     "prefer-const": ["error"],
-    "indent": ["error", 2],
     "semi": "error",
-    "quote-props": "warn",
     "comma-dangle": "off",
     "array-bracket-newline": "error",
     "max-len": ["error", { "code": 120 }]
