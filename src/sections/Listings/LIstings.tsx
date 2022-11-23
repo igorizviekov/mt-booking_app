@@ -15,8 +15,6 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
     refetch();
   };
 
-  // const listings = data ? data.map() : null;
-
   if (error) {
     return (
       <Alert
