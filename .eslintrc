@@ -6,7 +6,6 @@
     "prefer-const": ["error"],
     "semi": "error",
     "comma-dangle": "off",
-    "array-bracket-newline": "error",
     "max-len": ["error", { "code": 120 }]
   }
 }
