@@ -40,8 +40,8 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
     );
   }
   return (
-    <>
-      <h2>{title}</h2>
+    <div className='p-4'>
+      <h2 className='mb-4 text-4xl'>{title}</h2>
       <List
         bordered
         dataSource={data ? data : []}
@@ -72,6 +72,6 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
           );
         }}
       />
-    </>
+    </div>
   );
 };

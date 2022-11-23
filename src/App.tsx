@@ -6,7 +6,7 @@ import './styles/index.css';
 function App() {
   return (
     <>
-      <Listings title='list' />
+      <Listings title='Houses list' />
     </>
   );
 }
