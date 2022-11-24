@@ -40,7 +40,7 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
     );
   }
   return (
-    <div className='p-4'>
+    <div className='p-4 dark:bg-neutral-600'>
       <h2 className='mb-4 text-4xl text-text-color-1 lg:tracking-widest dark:text-white'>
         {title}
       </h2>
