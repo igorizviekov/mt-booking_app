@@ -1,7 +1,7 @@
 import React from 'react';
 import Listings from './sections/Listings';
 import 'antd/dist/reset.css';
-import './styles/index.css';
+import './styles/index.scss';
 import { ConfigProvider } from 'antd';
 
 function App() {

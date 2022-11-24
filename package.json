@@ -44,6 +44,8 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
     "prettier": "2.7.1",
+    "sass": "^1.56.1",
+    "scss": "^0.2.4",
     "tailwindcss": "^3.2.4"
   }
 }
