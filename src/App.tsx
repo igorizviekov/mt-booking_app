@@ -2,11 +2,21 @@ import React from 'react';
 import Listings from './sections/Listings';
 import 'antd/dist/reset.css';
 import './styles/index.css';
+import { ConfigProvider } from 'antd';
 
 function App() {
   return (
     <>
-      <Listings title='Houses list' />
+      <ConfigProvider
+        theme={{
+          token: {
+            colorText: 'var(--text-color-1)',
+            colorTextTertiary: 'var(--text-color-2)',
+            boxShadow: '10px 5px 5px red', //'var(--shadow-1)',
+          },
+        }}>
+        <Listings title='Houses list' />
+      </ConfigProvider>
     </>
   );
 }

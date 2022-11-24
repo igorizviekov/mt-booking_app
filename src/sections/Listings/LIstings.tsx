@@ -41,10 +41,12 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
   }
   return (
     <div className='p-4'>
-      <h2 className='mb-4 text-4xl'>{title}</h2>
+      <h2 className='mb-4 text-4xl text-text-color-1'>{title}</h2>
       <List
+        className=''
         bordered
         dataSource={data ? data : []}
+        style={{ boxShadow: 'var(--shadow-1)' }}
         renderItem={(elem) => {
           return (
             <List.Item
