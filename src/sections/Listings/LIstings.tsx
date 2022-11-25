@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { server, useQuery } from '../../lib/api/index';
-import { Listing } from './types';
+import { IListingProps } from './types';
 import { List, Button, Spin, Row, Col, Alert, Avatar, Skeleton } from 'antd';
 import { Typography } from '../../components';
 
@@ -9,7 +9,7 @@ interface ListingsProps {
 }
 
 export const Listings: React.FC<ListingsProps> = ({ title }) => {
-  const [{ loading, data, error }, refetch] = useQuery<Listing[]>();
+  const [{ loading, data, error }, refetch] = useQuery<IListingProps[]>();
 
   const deleteListing = async (id: string) => {
     await server.delete(id);

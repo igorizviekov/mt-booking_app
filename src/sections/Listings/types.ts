@@ -1,4 +1,4 @@
-export interface Listing {
+export interface IListingProps {
   id: string;
   title: string;
   image: string;

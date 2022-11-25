@@ -1,11 +1,7 @@
 import React from 'react';
+import { ITypographyProps } from './types';
 
-interface TypographyProps {
-  size: number;
-  label: string;
-}
-
-export const Typography: React.FC<TypographyProps> = ({ size, label }) => {
+export const Typography: React.FC<ITypographyProps> = ({ size, label }) => {
   return (
     <h2
       className='mb-4
