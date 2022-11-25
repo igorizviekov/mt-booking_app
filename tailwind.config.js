@@ -14,8 +14,13 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addUtilities, addComponents, e, config }) {
-      // Add your custom styles here
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.underline-red': {
+          color: 'red',
+          'text-decoration': 'underline',
+        },
+      });
     }),
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),

@@ -46,7 +46,6 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
         size={50}
         label={title}
       />
-
       <List
         className='bg-white lg:w-1/2'
         bordered
