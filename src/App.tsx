@@ -1,5 +1,5 @@
 import React from 'react';
-import Listings from './sections/Listings';
+import Listings from './sections';
 import 'antd/dist/reset.css';
 import './styles/index.scss';
 import { ConfigProvider } from 'antd';
