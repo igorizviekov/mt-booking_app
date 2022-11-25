@@ -2,7 +2,7 @@ import React from 'react';
 import { server, useQuery } from '../../lib/api/index';
 import { Listing } from './types';
 import { List, Button, Spin, Row, Col, Alert, Avatar, Skeleton } from 'antd';
-import Typography from '../../components';
+import { Typography } from '../../components';
 
 interface ListingsProps {
   title: string;
