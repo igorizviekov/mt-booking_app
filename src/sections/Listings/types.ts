@@ -1,5 +1,5 @@
 /**
- * Types for typography component
+ * Types for listings component
  * @param {id} string - ID of the listing
  * @param {title} string - Title of the listing
  * @param {image} string - Image of the listing
