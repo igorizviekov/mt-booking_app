@@ -2,13 +2,6 @@ import React from 'react';
 import { ITypographyProps } from './typography.types';
 
 export const Typography: React.FC<ITypographyProps> = (props) => {
-  // const additionalProps = (propsObj: ITypographyProps) => {
-  //   delete propsObj.size;
-  //   delete propsObj.label;
-
-  //   return propsObj;
-  // };
-
   return (
     <span
       className='mb-4

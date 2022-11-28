@@ -7,7 +7,6 @@ import { HTMLAttributes } from 'react';
  */
 
 export interface ITypographyProps extends HTMLAttributes<HTMLSpanElement> {
-  size?: number;
-  label?: string;
-  // [propName: string]: any;
+  size: number;
+  label: string;
 }
