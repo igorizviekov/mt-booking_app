@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 
 export const OAuthComponent = () => {
   useEffect(() => {
-    console.log(process.env.REACT_APP_CLIENT_ID);
     function start() {
       gapi.client.init({
         clientId: process.env.REACT_APP_CLIENT_ID,
@@ -14,5 +13,5 @@ export const OAuthComponent = () => {
 
     gapi.load('client:auth2', start);
   });
-  return <LoginButton />;
+  return localStorage.getItem('authData') ? <LogoutButton /> : <LoginButton />;
 };

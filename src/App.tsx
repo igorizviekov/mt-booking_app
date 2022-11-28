@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
-import { Listings, Home, Listing, User, Host, NotFound } from './sections';
+import {
+  Listings,
+  Home,
+  Listing,
+  User,
+  Host,
+  NotFound,
+  Login,
+} from './sections';
 import { ConfigProvider } from 'antd';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeContext } from './context/ThemeContext';
-import { OAuthComponent, ToggleTheme } from './components';
+import { ToggleTheme } from './components';
 
 function App() {
   const [darkTheme, setDarkTheme] = useState<boolean>(false);
@@ -19,7 +27,6 @@ function App() {
             },
           }}>
           <ToggleTheme />
-          <OAuthComponent />
           <BrowserRouter>
             <Routes>
               <Route
@@ -41,6 +48,10 @@ function App() {
               <Route
                 path='/user/:id'
                 element={<User />}
+              />
+              <Route
+                path='/login'
+                element={<Login />}
               />
               <Route
                 path='*'
