@@ -1,5 +1,5 @@
 import React from 'react';
-import { ITypographyProps } from './types';
+import { ITypographyProps } from './typography.types';
 
 export const Typography: React.FC<ITypographyProps> = ({ size, label }) => {
   return (
