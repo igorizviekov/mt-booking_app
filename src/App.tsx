@@ -3,7 +3,7 @@ import { Listings, Home, Listing, User, Host, NotFound } from './sections';
 import { ConfigProvider } from 'antd';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeContext } from './context/ThemeContext';
-import { ToggleTheme } from './components';
+import { OAuthComponent, ToggleTheme } from './components';
 
 function App() {
   const [darkTheme, setDarkTheme] = useState<boolean>(false);
@@ -19,6 +19,7 @@ function App() {
             },
           }}>
           <ToggleTheme />
+          <OAuthComponent />
           <BrowserRouter>
             <Routes>
               <Route
