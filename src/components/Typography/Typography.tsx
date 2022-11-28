@@ -1,7 +1,11 @@
 import React from 'react';
 import { ITypographyProps } from './typography.types';
 
-export const Typography: React.FC<ITypographyProps> = (props) => {
+export const Typography: React.FC<ITypographyProps> = ({
+  size,
+  label,
+  ...rest
+}) => {
   return (
     <span
       className='mb-4
@@ -11,9 +15,9 @@ export const Typography: React.FC<ITypographyProps> = (props) => {
       md:ml-8
       lg:ml-24
       xl:ml-34'
-      style={{ fontSize: `${props.size}px` }}
-      {...props}>
-      {props.label}
+      style={{ fontSize: `${size}px` }}
+      {...rest}>
+      {label}
     </span>
   );
 };
