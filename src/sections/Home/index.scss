@@ -3,7 +3,7 @@
   justify-content: space-around;
   padding: 10px;
 
-  .test-block__list {
+  &__list {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,18 +11,18 @@
     border: 2px solid;
     padding: 10px;
     width: 20%;
+  }
 
-    .test-block__link {
-      margin: 40px 0;
-    }
+  &__link {
+    margin: 40px 0;
 
-    .test-block__link--hover {
+    &--hover {
       color: rgb(70, 70, 255);
       text-decoration: underline;
     }
   }
 
-  .test-block__text {
+  &__text {
     font-family: Arial, Helvetica, sans-serif;
     font-size: larger;
     margin-left: 10px;
