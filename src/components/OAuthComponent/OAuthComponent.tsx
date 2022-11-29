@@ -13,5 +13,10 @@ export const OAuthComponent = () => {
 
     gapi.load('client:auth2', start);
   });
-  return localStorage.getItem('authData') ? <LogoutButton /> : <LoginButton />;
+
+  return (
+    <div className='flex justify-center'>
+      {localStorage.getItem('authData') ? <LogoutButton /> : <LoginButton />}
+    </div>
+  );
 };
