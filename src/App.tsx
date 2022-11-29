@@ -7,11 +7,11 @@ import {
   Host,
   NotFound,
   Login,
+  AppHeader,
 } from './sections';
-import { ConfigProvider } from 'antd';
+import { Affix, ConfigProvider } from 'antd';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeContext } from './context/ThemeContext';
-import { ToggleTheme } from './components';
 
 function App() {
   const [darkTheme, setDarkTheme] = useState<boolean>(false);
@@ -26,7 +26,9 @@ function App() {
               boxShadow: '10px 5px 5px red',
             },
           }}>
-          <ToggleTheme />
+          <Affix offsetTop={0}>
+            <AppHeader />
+          </Affix>
           <BrowserRouter>
             <Routes>
               <Route
