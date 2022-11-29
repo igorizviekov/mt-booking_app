@@ -1,14 +1,15 @@
 import React from 'react';
 import { server, useQuery } from '../../lib/api/index';
-import { Listing } from './types';
+import { IListingProps } from './listings.types';
 import { List, Button, Spin, Row, Col, Alert, Avatar, Skeleton } from 'antd';
+import { Typography } from '../../components';
 
 interface ListingsProps {
   title: string;
 }
 
 export const Listings: React.FC<ListingsProps> = ({ title }) => {
-  const [{ loading, data, error }, refetch] = useQuery<Listing[]>();
+  const [{ loading, data, error }, refetch] = useQuery<IListingProps[]>();
 
   const deleteListing = async (id: string) => {
     await server.delete(id);
@@ -40,11 +41,16 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
     );
   }
   return (
-    <div className='p-4'>
-      <h2 className='mb-4 text-4xl'>{title}</h2>
+    <div className='p-4 dark:bg-neutral-600'>
+      <Typography
+        size={50}
+        label={title}
+      />
       <List
+        className='bg-white lg:w-1/2'
         bordered
         dataSource={data ? data : []}
+        style={{ boxShadow: 'var(--shadow-1)' }}
         renderItem={(elem) => {
           return (
             <List.Item
