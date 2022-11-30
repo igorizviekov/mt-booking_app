@@ -1,8 +1,9 @@
 import { Menu } from 'antd';
 import { AiOutlineLogin } from 'react-icons/ai';
+import { useTypedSelector } from '../../store/useTypedSelector';
 
 export const MenuItem = () => {
-  const authData = localStorage.getItem('authData');
+  const { authData } = useTypedSelector((state) => state.auth);
   const items = [
     {
       label: 'Host',
@@ -14,7 +15,7 @@ export const MenuItem = () => {
       key: 'login',
       icon: authData ? (
         <img
-          src={JSON.parse(authData).profileObj.imageUrl}
+          src={authData.profileObj.imageUrl}
           alt='user avatar'
           className='rounded-full w-10 h-10'
         />

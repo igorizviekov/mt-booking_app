@@ -1,4 +1,4 @@
-import { IAuthState, AuthAction, AuthActionTypes } from './authReducer.types';
+import { IAuthState, AuthAction, AuthActionTypes } from './authReducer.types.d';
 
 const initialState = {
   authData: null,

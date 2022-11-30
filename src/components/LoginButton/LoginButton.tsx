@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import {
-  GoogleLogin,
-  GoogleLoginResponse,
-  GoogleLoginResponseOffline,
-} from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 import { Navigate } from 'react-router-dom';
 import { displayErrorMessage, displaySuccessMessage } from '../../lib/utils';
+import { useDispatch } from 'react-redux';
 
 export const LoginButton = () => {
+  const dispatch = useDispatch();
   const [isRedirect, setIsRedirect] = useState<boolean>(false);
-  const onSuccess = (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
-    localStorage.setItem('authData', JSON.stringify(res));
+  const onSuccess = (res: any) => {
+    dispatch({ type: 'LOGIN', payload: res });
     setIsRedirect(true);
     displaySuccessMessage('Success!', 'Logged in succesfully');
   };

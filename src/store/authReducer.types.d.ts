@@ -1,20 +1,15 @@
-import {
-  GoogleLoginResponse,
-  GoogleLoginResponseOffline,
-} from 'react-google-login';
-
 export enum AuthActionTypes {
   LOGIN = 'LOGIN',
   LOGOUT = 'LOGOUT',
 }
 
 export interface IAuthState {
-  authData: null | GoogleLoginResponse | GoogleLoginResponseOffline;
+  authData: null | any;
 }
 
 interface ILoginAction {
   type: AuthActionTypes.LOGIN;
-  payload: GoogleLoginResponse | GoogleLoginResponseOffline;
+  payload: any;
 }
 
 interface ILogoutAction {

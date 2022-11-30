@@ -2,8 +2,11 @@ import { LoginButton } from '../LoginButton';
 import { LogoutButton } from '../LogoutButton';
 import { gapi } from 'gapi-script';
 import { useEffect } from 'react';
+import { useTypedSelector } from '../../store/useTypedSelector';
 
 export const OAuthComponent = () => {
+  const { authData } = useTypedSelector((state) => state.auth);
+
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -16,7 +19,7 @@ export const OAuthComponent = () => {
 
   return (
     <div className='flex justify-center'>
-      {localStorage.getItem('authData') ? <LogoutButton /> : <LoginButton />}
+      {authData ? <LogoutButton /> : <LoginButton />}
     </div>
   );
 };
