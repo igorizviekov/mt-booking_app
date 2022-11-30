@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { Navigate } from 'react-router-dom';
 import { displayErrorMessage, displaySuccessMessage } from '../../lib/utils';
-import { useDispatch } from 'react-redux';
+import { useStoreActions } from '../../store/hooks';
 
 export const LoginButton = () => {
-  const dispatch = useDispatch();
+  const login = useStoreActions((actions) => actions.login);
   const [isRedirect, setIsRedirect] = useState<boolean>(false);
   const onSuccess = (res: any) => {
-    dispatch({ type: 'LOGIN', payload: res });
+    login(res);
     setIsRedirect(true);
     displaySuccessMessage('Success!', 'Logged in succesfully');
   };

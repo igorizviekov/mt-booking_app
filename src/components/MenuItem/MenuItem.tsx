@@ -1,9 +1,9 @@
 import { Menu } from 'antd';
 import { AiOutlineLogin } from 'react-icons/ai';
-import { useTypedSelector } from '../../store/useTypedSelector';
+import { useStoreState } from '../../store/hooks';
 
 export const MenuItem = () => {
-  const { authData } = useTypedSelector((state) => state.auth);
+  const { authData } = useStoreState((state) => state.auth);
   const items = [
     {
       label: 'Host',
