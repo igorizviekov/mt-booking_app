@@ -1,13 +1,20 @@
-import { createStore } from 'redux';
-import { rootReducer } from './rootReducer';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import { action, createStore } from 'easy-peasy';
+import { IAuthModel } from './store.types';
+import { persist } from 'easy-peasy';
 
-const persistConfig = {
-  key: 'root',
-  storage,
-};
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-export const store = createStore(persistedReducer);
-export const persistor = persistStore(store);
+export const store = createStore<IAuthModel>(
+  persist(
+    {
+      auth: { authData: null },
+      login: action((state, payload) => {
+        state.auth.authData = payload;
+      }),
+      logout: action((state) => {
+        state.auth.authData = null;
+      }),
+    },
+    {
+      storage: 'localStorage',
+    },
+  ),
+);
