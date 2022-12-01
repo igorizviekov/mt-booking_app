@@ -7,10 +7,16 @@ enum Rounded {
 
 /**
  * Types for Input
- * @param {string} type - Type of the input
+ * @param {string} border - Set border radius
+ * @param {boolean} dark - Dark theme
+ * @param {boolean} disabled - Disable input
+ * @param {string} error - Set the error
  */
 
-export interface IInputComponentProps extends HTMLAttributes<HTMLInputElement> {
+export interface IInputProps extends HTMLAttributes<HTMLInputElement> {
   border: Rounded.normal | Rounded.rounded;
   dark: boolean;
+  disabled: boolean;
+  error: boolean;
+  errorMessage: string;
 }

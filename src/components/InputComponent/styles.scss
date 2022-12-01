@@ -1,0 +1,13 @@
+.input-wrapper {
+  &__input {
+    border: 2px solid rgb(205, 205, 205);
+    height: 35px;
+    width: 350px;
+    padding: 0 20px;
+  }
+
+  &__error {
+    margin-top: 5px;
+    color: red;
+  }
+}
