@@ -4,7 +4,7 @@ import { Content } from 'antd/es/layout/layout';
 
 export const Login = () => {
   return (
-    <Content className='p-4'>
+    <Content className='mt-12'>
       <Card className='w-1/2 mx-auto'>
         <div className='layout-content'>
           <Row

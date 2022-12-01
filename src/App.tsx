@@ -9,7 +9,7 @@ import {
   Login,
   AppHeader,
 } from './sections';
-import { Affix, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeContext } from './context/ThemeContext';
 
@@ -26,9 +26,7 @@ function App() {
               boxShadow: '10px 5px 5px red',
             },
           }}>
-          <Affix offsetTop={0}>
-            <AppHeader />
-          </Affix>
+          <AppHeader />
           <BrowserRouter>
             <Routes>
               <Route
