@@ -1,16 +1,26 @@
-import { Avatar, Card, Space, Divider, Carousel, Alert, Spin } from 'antd';
+import {
+  Avatar,
+  Card,
+  Space,
+  Divider,
+  Carousel,
+  Alert,
+  Spin,
+  List,
+} from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import { useStoreState } from '../../store/hooks';
 import { IListingProps } from '../Listings/listings.types.d';
 import { useQuery } from '../../lib/api';
-import { ListingCard } from '../../components';
+import { BookingCard } from '../../components';
+import { ListingComponent } from '../../components/ListingComponent';
 
 export const User = () => {
   const { authData } = useStoreState((state) => state.auth);
-  const [{ loading, data, error }, refetch] = useQuery<IListingProps[]>();
+  const [{ loading, data, error }] = useQuery<IListingProps[]>();
 
   return (
-    <div className='flex items-center justify-center mt-12'>
+    <div className='flex items-center justify-center my-12'>
       <Card className='w-1/2'>
         <Space
           direction='vertical'
@@ -34,6 +44,28 @@ export const User = () => {
             </div>
           </div>
           <Divider plain>
+            <span className='text-2xl'>Listings</span>
+          </Divider>
+          <div className='flex items-center justify-center'>
+            <List className='w-full'>
+              {error ? (
+                <Alert
+                  message='Error'
+                  type='error'
+                  description='Something went wrong, try again later ￣\_(0_o)_/￣'
+                  showIcon></Alert>
+              ) : loading ? (
+                <Spin size='large' />
+              ) : (
+                <List>
+                  {data?.map((e) => {
+                    return <ListingComponent {...e} />;
+                  })}
+                </List>
+              )}
+            </List>
+          </div>
+          <Divider plain>
             <span className='text-2xl'>Bookings</span>
           </Divider>
           <div className='flex items-center justify-center'>
@@ -49,7 +81,7 @@ export const User = () => {
               <div className='w-full bg-blue-900'>
                 <Carousel className='p-4 pb-8'>
                   {data?.map((e) => {
-                    return <ListingCard {...e} />;
+                    return <BookingCard {...e} />;
                   })}
                 </Carousel>
               </div>

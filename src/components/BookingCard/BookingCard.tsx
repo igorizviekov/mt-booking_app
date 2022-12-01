@@ -2,7 +2,7 @@ import { Avatar, Card, Rate } from 'antd';
 import React from 'react';
 import { IListingProps } from '../../sections/Listings/listings.types';
 
-export const ListingCard: React.FC<IListingProps> = ({
+export const BookingCard: React.FC<IListingProps> = ({
   id,
   address,
   image,
@@ -19,7 +19,7 @@ export const ListingCard: React.FC<IListingProps> = ({
     <div className='flex justify-center'>
       <Card
         key={id}
-        className='flex flex-col'
+        className='flex flex-col hover:bg-blue-100'
         onClick={() => (window.location.href = '/listing/' + id)}
         hoverable
         style={{ width: 240 }}
