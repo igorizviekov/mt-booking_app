@@ -2,11 +2,11 @@
   {
     "address": "London, 221B Baker Street",
     "id": "1",
-    "image": "https://vignette.wikia.nocookie.net/cbselementary/images/8/81/S06E21-221A_and_B_Baker_St.jpg/revision/latest?cb=20190226022944",
+    "image": "https://thespaces.com/wp-content/uploads/2016/06/Sherlock-flat-bbc.jpg",
     "numOfBeds": 2,
     "numOfGuests": 2,
     "price": 1000,
-    "raiting": 3.1,
+    "rating": 3.1,
     "title": "Small flat"
   },
 
@@ -17,7 +17,7 @@
     "numOfBeds": 30,
     "numOfGuests": 30,
     "price": 100000,
-    "raiting": 4.8,
+    "rating": 4.8,
     "title": "Moving Castle"
   },
 
@@ -28,7 +28,7 @@
     "numOfBeds": 3,
     "numOfGuests": 10,
     "price": 3000,
-    "raiting": 4.4,
+    "rating": 4.4,
     "title": "Large house for the whole family"
   }
 ]

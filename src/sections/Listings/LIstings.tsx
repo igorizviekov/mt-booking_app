@@ -1,6 +1,6 @@
 import React from 'react';
 import { server, useQuery } from '../../lib/api/index';
-import { IListingProps } from './listings.types';
+import { IListingProps } from './listings.types.d';
 import { List, Button, Spin, Row, Col, Alert, Avatar, Skeleton } from 'antd';
 import { Typography } from '../../components';
 
