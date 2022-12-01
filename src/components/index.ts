@@ -5,4 +5,4 @@ export * from './LogoutButton';
 export * from './OAuthComponent';
 export * from './MenuItem';
 export * from './InputComponent';
-export * from './ListingCard';
+export * from './BookingCard';

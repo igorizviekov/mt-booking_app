@@ -34,7 +34,7 @@ export const User = () => {
             </div>
           </div>
           <Divider plain>
-            <span className='text-2xl'>Listings</span>
+            <span className='text-2xl'>Bookings</span>
           </Divider>
           <div className='flex items-center justify-center'>
             {error ? (
