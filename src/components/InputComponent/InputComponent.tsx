@@ -7,13 +7,16 @@ export const InputComponent: React.FC<IInputProps> = ({
   dark,
   error,
   errorMessage,
-  inputValueReciever,
+  className,
   ...rest
 }) => {
+  const inputClassNames = ['input-wrapper__input', className]
+    .filter(Boolean)
+    .join(' ');
   return (
     <div className='input-wrapper'>
       <input
-        className='input-wrapper__input'
+        className={inputClassNames}
         style={{
           borderRadius: `${border === 'rounded' ? '50px' : ''}`,
           background: `${dark ? 'black' : 'white'}`,
