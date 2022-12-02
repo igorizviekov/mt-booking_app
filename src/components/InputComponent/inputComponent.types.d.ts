@@ -17,8 +17,6 @@ enum Rounded {
 export interface IInputProps extends HTMLAttributes<HTMLInputElement> {
   border: Rounded.normal | Rounded.rounded;
   dark: boolean;
-  disabled: boolean;
   error: boolean;
   errorMessage: string;
-  inputValueReciever?: (a: string) => any;
 }
