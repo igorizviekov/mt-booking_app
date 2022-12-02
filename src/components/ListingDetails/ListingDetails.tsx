@@ -9,9 +9,6 @@ export const ListingDetails: React.FC<IListingDetailsProps> = ({
   id,
 }) => {
   const { authData } = useStoreState((state) => state.auth);
-  const listingData: undefined | IListingProps = data?.filter(
-    (e) => e.id === id,
-  )[0];
 
   const { Meta } = Card;
 
@@ -25,29 +22,27 @@ export const ListingDetails: React.FC<IListingDetailsProps> = ({
         <Avatar
           shape='square'
           size={500}
-          icon={<img src={listingData?.image} />}
+          icon={<img src={data?.image} />}
         />
       }>
       <Meta
         title={
           <h2
             className='text-3xl'
-            title={listingData!.title}>
-            {cutString(listingData!.title, 30)}
+            title={data!.title}>
+            {cutString(data!.title, 30)}
           </h2>
         }
         description={
           <span className='flex items-center'>
             <a
-              href={`/listings/${listingData!.location}`}
+              href={`/listings/${data!.location}`}
               className='text-blue-600 flex items-center'>
               <HiOutlineLocationMarker />
-              {listingData!.location}
+              {data!.location}
             </a>
             <span className='text-gray-300 mx-2'>|</span>
-            <span title={listingData!.address}>
-              {cutString(listingData!.address, 50)}
-            </span>
+            <span title={data!.address}>{cutString(data!.address, 50)}</span>
           </span>
         }
       />
@@ -68,7 +63,7 @@ export const ListingDetails: React.FC<IListingDetailsProps> = ({
         mb-4'>
           About this space
         </span>
-        <span>{listingData!.description}</span>
+        <span>{data!.description}</span>
       </div>
     </Card>
   );

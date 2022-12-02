@@ -2,13 +2,22 @@ import { Alert, Spin } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { ListingBookings, ListingDetails } from '../../components';
+import {
+  ListingBookings,
+  ListingCreateBooking,
+  ListingDetails,
+} from '../../components';
 import { useQuery } from '../../lib/api';
 import { IListingProps } from '../Listings/listings.types';
 
 export const Listing = () => {
   const { id } = useParams();
   const [{ loading, data, error }] = useQuery<IListingProps[]>();
+
+  const listingData: undefined | IListingProps = data?.filter(
+    (e) => e.id === id,
+  )[0];
+
   return (
     <Content className='flex items-center justify-center min-h-max my-12'>
       {error ? (
@@ -20,12 +29,15 @@ export const Listing = () => {
       ) : loading ? (
         <Spin size='large' />
       ) : (
-        <div>
-          <ListingDetails
-            data={data}
-            id={id}
-          />
-          <ListingBookings />
+        <div className='flex w-5/6 justify-between'>
+          <div>
+            <ListingDetails
+              data={listingData}
+              id={id}
+            />
+            <ListingBookings />
+          </div>
+          <ListingCreateBooking price={listingData!.price} />
         </div>
       )}
     </Content>

@@ -13,8 +13,9 @@ export const ListingBookings = () => {
           Bookings
         </span>
         <Carousel className='bg-blue-800 w-80 mt-4 rounded-md'>
-          {[1, 2, 3, 4, 5, 6, 7].map((e) => (
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((e) => (
             <ListingBooking
+              key={e}
               checkIn={new Date()}
               checkOut={new Date()}
               userId='1339'

@@ -8,5 +8,5 @@ import { IListingProps } from '../../sections/Listings/listings.types';
 
 export interface IListingDetailsProps {
   id: string | undefined;
-  data: IListingProps[] | null;
+  data: IListingProps | undefined;
 }

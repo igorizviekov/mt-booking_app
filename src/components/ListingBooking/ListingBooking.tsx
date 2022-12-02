@@ -9,9 +9,7 @@ export const ListingBooking: React.FC<IListingBookingProps> = ({
   userId,
 }) => {
   return (
-    <div
-      className='flex justify-center p-4 pb-8'
-      key={userId}>
+    <div className='flex justify-center p-4 pb-8'>
       <Card className='w-56 h-56 bg-gray-100'>
         <div className='flex flex-col items-center space-y-4'>
           <Avatar
