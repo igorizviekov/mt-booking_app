@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IInputProps } from './inputComponent.types';
+import { IInputProps } from './inputComponent.types.d';
 import './styles.scss';
 
 export const InputComponent: React.FC<IInputProps> = ({
@@ -30,13 +30,13 @@ export const InputComponent: React.FC<IInputProps> = ({
         onChange={inputChangeHandler}
         className='input-wrapper__input'
         disabled={disabled}
-        {...rest}
         style={{
           borderRadius: `${border === 'rounded' ? '50px' : ''}`,
           background: `${dark ? 'black' : 'white'}`,
           color: `${dark ? 'white' : 'black'}`,
           border: `${error ? '2px solid red' : ''}`,
         }}
+        {...rest}
       />
       {error && <div className='input-wrapper__error'>{errorMessage}</div>}
     </div>

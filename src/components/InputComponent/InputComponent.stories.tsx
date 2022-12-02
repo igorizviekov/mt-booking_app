@@ -2,7 +2,7 @@ import { InputComponent } from './InputComponent';
 import { Meta, Story } from '@storybook/react';
 
 export default {
-  title: 'Input',
+  title: 'Form/Input',
   component: InputComponent,
 } as Meta;
 
