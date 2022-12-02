@@ -8,7 +8,8 @@
     "price": 1000,
     "rating": 3.1,
     "title": "Small flat",
-    "location": "London"
+    "location": "London",
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
   },
 
   {
@@ -20,7 +21,8 @@
     "price": 100000,
     "rating": 4.8,
     "title": "Country house",
-    "location": "Baracaldo"
+    "location": "Baracaldo",
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
   },
 
   {
@@ -32,6 +34,7 @@
     "price": 3000,
     "rating": 4.4,
     "title": "Large house for the whole family",
-    "location": "Illinois"
+    "location": "Illinois",
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
   }
 ]
