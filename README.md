@@ -11,7 +11,7 @@
 [X] Building the AppHeader & Logout<br />
 [X] Cookies & Login Sessions<br />
 [X] localStorage vs. sessionStorage vs. cookies<br />
-[ ] X-CSRF Token<br />
+[Х] X-CSRF Token<br />
 [ ] The UserProfile React Component<br />
 [ ] The UserListings & UserBookings React Components<br />
 [ ] ListingDetails & ListingBookings<br />
