@@ -7,18 +7,20 @@
     "numOfGuests": 2,
     "price": 1000,
     "rating": 3.1,
-    "title": "Small flat"
+    "title": "Small flat",
+    "location": "London"
   },
 
   {
-    "address": "no address",
+    "address": "Escalinata Marisol Parra 4 Esc. 346, Esc. 509, 22349, Baracaldo, Región de Murcia, Spain",
     "id": "2",
-    "image": "https://allhdwallpapers.com/wp-content/uploads/2015/04/howl-moving-castle-4.jpg",
-    "numOfBeds": 30,
-    "numOfGuests": 30,
+    "image": "https://housely.com/wp-content/uploads/2016/10/ConnecticutHouse_01.jpg",
+    "numOfBeds": 3,
+    "numOfGuests": 6,
     "price": 100000,
     "rating": 4.8,
-    "title": "Moving Castle"
+    "title": "Country house",
+    "location": "Baracaldo"
   },
 
   {
@@ -29,6 +31,7 @@
     "numOfGuests": 10,
     "price": 3000,
     "rating": 4.4,
-    "title": "Large house for the whole family"
+    "title": "Large house for the whole family",
+    "location": "Illinois"
   }
 ]

@@ -8,6 +8,7 @@
  * @param {numOfGuests} number -Number of guests listing item can contain
  * @param {numOfBeds} number - Number of beds listing item can contain
  * @param {rating} number - Rating of the listing item
+ * @param {location} string - Location of the listing item
  */
 
 export interface IListingProps {
@@ -19,4 +20,5 @@ export interface IListingProps {
   numOfGuests: number;
   numOfBeds: number;
   rating: number;
+  location: string;
 }
