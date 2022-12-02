@@ -2,7 +2,7 @@ import { Alert, Spin } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { ListingDetails } from '../../components';
+import { ListingBookings, ListingDetails } from '../../components';
 import { useQuery } from '../../lib/api';
 import { IListingProps } from '../Listings/listings.types';
 
@@ -20,10 +20,13 @@ export const Listing = () => {
       ) : loading ? (
         <Spin size='large' />
       ) : (
-        <ListingDetails
-          data={data}
-          id={id}
-        />
+        <div>
+          <ListingDetails
+            data={data}
+            id={id}
+          />
+          <ListingBookings />
+        </div>
       )}
     </Content>
   );

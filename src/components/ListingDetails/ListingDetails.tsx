@@ -2,9 +2,12 @@ import { IListingProps } from '../../sections/Listings/listings.types';
 import { Card, Avatar, Divider } from 'antd';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { useStoreState } from '../../store/hooks';
-import { IListingDetails } from './listingDetaild.types';
+import { IListingDetailsProps } from './listingDetaild.types';
 
-export const ListingDetails: React.FC<IListingDetails> = ({ data, id }) => {
+export const ListingDetails: React.FC<IListingDetailsProps> = ({
+  data,
+  id,
+}) => {
   const { authData } = useStoreState((state) => state.auth);
   const listingData: undefined | IListingProps = data?.filter(
     (e) => e.id === id,

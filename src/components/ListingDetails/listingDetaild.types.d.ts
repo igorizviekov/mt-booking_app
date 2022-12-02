@@ -6,7 +6,7 @@ import { IListingProps } from '../../sections/Listings/listings.types';
  * @param {data} IListingProps[] - Listing data
  */
 
-export interface IListingDetails {
+export interface IListingDetailsProps {
   id: string | undefined;
   data: IListingProps[] | null;
 }
