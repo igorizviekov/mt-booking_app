@@ -4,17 +4,6 @@ import { Meta, Story } from '@storybook/react';
 export default {
   title: 'Input',
   component: InputComponent,
-  argTypes: {
-    border: {
-      description: 'Add rounded border or remove it',
-    },
-    dark: {
-      description: 'Set dark theme',
-    },
-    disabled: {
-      description: 'Disable input',
-    },
-  },
 } as Meta;
 
 const Template: Story = (args: any) => <InputComponent {...args} />;
@@ -34,4 +23,13 @@ Dark.args = {
   disabled: false,
   error: false,
   errorMessage: '',
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  border: 'normal',
+  disabled: false,
+  dark: false,
+  error: true,
+  errorMessage: 'Error text',
 };

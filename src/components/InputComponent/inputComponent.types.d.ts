@@ -11,6 +11,7 @@ enum Rounded {
  * @param {boolean} dark - Dark theme
  * @param {boolean} disabled - Disable input
  * @param {string} error - Set the error
+ * @param {function} inputValueReciever - Function that recieves input value
  */
 
 export interface IInputProps extends HTMLAttributes<HTMLInputElement> {
@@ -19,4 +20,5 @@ export interface IInputProps extends HTMLAttributes<HTMLInputElement> {
   disabled: boolean;
   error: boolean;
   errorMessage: string;
+  inputValueReciever?: (a: string) => any;
 }

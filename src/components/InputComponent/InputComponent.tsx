@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IInputProps } from './inputComponent.types';
 import './styles.scss';
 
@@ -8,6 +8,7 @@ export const InputComponent: React.FC<IInputProps> = ({
   disabled,
   error,
   errorMessage,
+  inputValueReciever,
   ...rest
 }) => {
   const [value, setValue] = useState<string>('');
@@ -15,6 +16,13 @@ export const InputComponent: React.FC<IInputProps> = ({
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
+
+  useEffect(() => {
+    if (inputValueReciever) {
+      inputValueReciever(value);
+    }
+  }, [value, inputValueReciever]);
+
   return (
     <div className='input-wrapper'>
       <input
