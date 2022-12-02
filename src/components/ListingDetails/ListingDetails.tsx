@@ -2,7 +2,7 @@ import { IListingProps } from '../../sections/Listings/listings.types';
 import { Card, Avatar, Divider } from 'antd';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { useStoreState } from '../../store/hooks';
-import { IListingDetailsProps } from './listingDetaild.types';
+import { IListingDetailsProps } from './listingDetails.types';
 
 export const ListingDetails: React.FC<IListingDetailsProps> = ({
   data,
