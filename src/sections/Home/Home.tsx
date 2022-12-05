@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.scss';
+import { ButtonComponent } from '../../components';
 
 export const Home = () => {
   return (
@@ -26,6 +27,8 @@ export const Home = () => {
         cupiditate, expedita neque eius reiciendis in iusto natus saepe, culpa
         voluptas nostrum, id quo unde odit facilis corporis minima amet.
       </article>
+      <ButtonComponent primary>Primary</ButtonComponent>
+      <ButtonComponent>Secondary</ButtonComponent>
     </div>
   );
 };
