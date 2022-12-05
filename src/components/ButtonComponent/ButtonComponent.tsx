@@ -2,15 +2,10 @@ import styled, { css } from 'styled-components';
 import { IButtonProps } from './buttonComponent.types';
 import React from 'react';
 import { IStyledButton } from './buttonComponent.types';
+import defaultStyles from './.styles';
 
 const Button = styled.button<IStyledButton>`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-
+  ${defaultStyles}
   ${(props) =>
     props.primary &&
     css`
