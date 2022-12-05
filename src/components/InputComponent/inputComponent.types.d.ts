@@ -1,10 +1,5 @@
 import { HTMLAttributes } from 'react';
 
-enum Rounded {
-  rounded = 'rounded',
-  normal = 'normal',
-}
-
 /**
  * Types for Input
  * @param {border} string - Set border for the input
@@ -14,7 +9,7 @@ enum Rounded {
  */
 
 export interface IInputProps extends HTMLAttributes<HTMLInputElement> {
-  border: Rounded.normal | Rounded.rounded;
+  border: 'normal' | 'rounded';
   dark: boolean;
   error: boolean;
   errorMessage: string;

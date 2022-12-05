@@ -11,10 +11,10 @@ const Template: Story = (args: any) => (
 );
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
+  type: 'primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  secondary: true,
+  type: 'secondary',
 };

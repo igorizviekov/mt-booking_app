@@ -14,6 +14,11 @@ const Button = styled.button<IStyledButton>`
     `};
 `;
 
-export const ButtonComponent: React.FC<IButtonProps> = (props) => {
-  return <Button {...props} />;
+export const ButtonComponent: React.FC<IButtonProps> = ({ type, ...rest }) => {
+  return (
+    <Button
+      primary={type === 'primary'}
+      {...rest}
+    />
+  );
 };

@@ -7,8 +7,7 @@ import { HTMLAttributes } from 'react';
  */
 
 export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  primary?: boolean;
-  secondary?: boolean;
+  type?: 'primary' | 'secondary';
 }
 
 /**

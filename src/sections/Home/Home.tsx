@@ -27,7 +27,7 @@ export const Home = () => {
         cupiditate, expedita neque eius reiciendis in iusto natus saepe, culpa
         voluptas nostrum, id quo unde odit facilis corporis minima amet.
       </article>
-      <ButtonComponent primary>Primary</ButtonComponent>
+      <ButtonComponent type={'primary'}>Primary</ButtonComponent>
       <ButtonComponent>Secondary</ButtonComponent>
     </div>
   );
