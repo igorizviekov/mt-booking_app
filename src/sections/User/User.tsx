@@ -9,14 +9,14 @@ import {
   List,
 } from 'antd';
 import { Content } from 'antd/es/layout/layout';
-import { useStoreState } from '../../store/hooks';
+import { useAppSelector } from '../../store/hooks';
 import { IListingProps } from '../Listings/listings.types.d';
 import { useQuery } from '../../lib/api';
 import { BookingCard } from '../../components';
 import { ListingComponent } from '../../components/ListingComponent';
 
 export const User = () => {
-  const { authData } = useStoreState((state) => state.auth);
+  const { authData } = useAppSelector((state) => state.auth);
   const [{ loading, data, error }] = useQuery<IListingProps[]>();
 
   return (

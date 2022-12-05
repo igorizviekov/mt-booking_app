@@ -1,8 +1,6 @@
-import { createTypedHooks } from 'easy-peasy';
-import { IAuthModel } from './store.types.d';
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from '.';
 
-const typedHooks = createTypedHooks<IAuthModel>();
-
-export const useStoreActions = typedHooks.useStoreActions;
-export const useStoreDispatch = typedHooks.useStoreDispatch;
-export const useStoreState = typedHooks.useStoreState;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

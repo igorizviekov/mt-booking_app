@@ -1,14 +1,13 @@
-import { IListingProps } from '../../sections/Listings/listings.types';
 import { Card, Avatar, Divider } from 'antd';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
-import { useStoreState } from '../../store/hooks';
+import { useAppSelector } from '../../store/hooks';
 import { IListingDetailsProps } from './listingDetaild.types';
 
 export const ListingDetails: React.FC<IListingDetailsProps> = ({
   data,
   id,
 }) => {
-  const { authData } = useStoreState((state) => state.auth);
+  const { authData } = useAppSelector((state) => state.auth);
 
   const { Meta } = Card;
 
