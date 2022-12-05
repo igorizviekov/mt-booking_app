@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
-import { IButtonProps } from './buttonComponent.types';
+import { IButtonProps } from './button.types';
 import React from 'react';
-import { IStyledButton } from './buttonComponent.types';
+import { IStyledButton } from './button.types';
 import defaultStyles from './.styles';
 
-const Button = styled.button<IStyledButton>`
+const StyledButton = styled.button<IStyledButton>`
   ${defaultStyles}
   ${(props) =>
     props.primary &&
@@ -14,9 +14,9 @@ const Button = styled.button<IStyledButton>`
     `};
 `;
 
-export const ButtonComponent: React.FC<IButtonProps> = ({ type, ...rest }) => {
+export const Button: React.FC<IButtonProps> = ({ type, ...rest }) => {
   return (
-    <Button
+    <StyledButton
       primary={type === 'primary'}
       {...rest}
     />

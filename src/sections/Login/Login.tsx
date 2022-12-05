@@ -1,4 +1,4 @@
-import { OAuthComponent, Typography } from '../../components';
+import { OAuth, Typography } from '../../components';
 import { Row, Card } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 
@@ -18,7 +18,7 @@ export const Login = () => {
           <Row
             justify='center'
             align='middle'>
-            <OAuthComponent />
+            <OAuth />
           </Row>
         </div>
       </Card>

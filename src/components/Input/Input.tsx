@@ -1,8 +1,8 @@
 import React from 'react';
-import { IInputProps } from './inputComponent.types.d';
+import { IInputProps } from './input.types';
 import './styles.scss';
 
-export const InputComponent: React.FC<IInputProps> = ({
+export const Input: React.FC<IInputProps> = ({
   border,
   dark,
   error,

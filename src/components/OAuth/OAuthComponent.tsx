@@ -4,7 +4,7 @@ import { gapi } from 'gapi-script';
 import { useEffect } from 'react';
 import { useStoreState } from '../../store/hooks';
 
-export const OAuthComponent = () => {
+export const OAuth = () => {
   const { authData } = useStoreState((state) => state.auth);
 
   useEffect(() => {

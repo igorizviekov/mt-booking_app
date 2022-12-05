@@ -2,7 +2,7 @@ import { List, Skeleton, Avatar } from 'antd';
 import React from 'react';
 import { IListingProps } from '../../sections/Listings/listings.types';
 
-export const ListingComponent: React.FC<IListingProps> = ({
+export const ListingItem: React.FC<IListingProps> = ({
   id,
   title,
   address,
