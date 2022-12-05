@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 import { IButtonProps } from './buttonComponent.types';
 import React from 'react';
+import { IStyledButton } from './buttonComponent.types';
 
-const Button = styled.button<{ primary?: boolean; secondary?: boolean }>`
+const Button = styled.button<IStyledButton>`
   background: transparent;
   border-radius: 3px;
   border: 2px solid palevioletred;

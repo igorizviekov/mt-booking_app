@@ -10,3 +10,14 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   primary?: boolean;
   secondary?: boolean;
 }
+
+/**
+ * Types for Styled Button
+ * @param {primary} boolean - primary style of the button
+ * @param {secondary} boolean - secondary style of the button
+ */
+
+export interface IStyledButton {
+  primary?: boolean;
+  secondary?: boolean;
+}
