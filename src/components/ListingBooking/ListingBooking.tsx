@@ -18,11 +18,11 @@ export const ListingBooking: React.FC<IListingBookingProps> = ({
             shape='square'
             size={90}
           />
-          <div>
+          <div className='text-xs'>
             Check in:{' '}
             <span className='font-bold'>{checkIn.toDateString()}</span>
           </div>
-          <div>
+          <div className='text-xs'>
             Check out:{' '}
             <span className='font-bold'>{checkOut.toDateString()}</span>
           </div>

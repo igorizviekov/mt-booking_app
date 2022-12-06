@@ -11,7 +11,7 @@ import { useQuery } from '../../lib/api';
 import { IListingProps } from '../Listings/listings.types';
 
 export const Listing = () => {
-  const { id } = useParams();
+  const id = useParams().id!;
   const [{ loading, data, error }] = useQuery<IListingProps[]>();
 
   const listingData: undefined | IListingProps = data?.filter(

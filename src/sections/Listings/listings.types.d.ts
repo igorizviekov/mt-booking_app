@@ -22,5 +22,5 @@ export interface IListingProps {
   numOfBeds: number;
   rating: number;
   location: string;
-  description: string;
+  description?: string;
 }
