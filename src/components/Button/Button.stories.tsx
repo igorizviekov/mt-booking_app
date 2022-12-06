@@ -9,10 +9,10 @@ export default {
 const Template: Story = (args: any) => <Button {...args}>Hello World!</Button>;
 export const Primary = Template.bind({});
 Primary.args = {
-  type: 'primary',
+  styleType: 'primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  type: 'secondary',
+  styleType: 'secondary',
 };
