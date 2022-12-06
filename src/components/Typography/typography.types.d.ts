@@ -2,8 +2,8 @@ import { HTMLAttributes } from 'react';
 
 /**
  * Types for typography component
- * @param {number} size - Size of the text (pixels)
- * @param {string} label - Text content of the compopnent
+ * @param {size} number - Size of the text (pixels)
+ * @param {label} string - Text content of the compopnent
  */
 
 export interface ITypographyProps extends HTMLAttributes<HTMLSpanElement> {

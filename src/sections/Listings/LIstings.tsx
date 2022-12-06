@@ -30,7 +30,7 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
     return (
       <>
         <Row
-          style={{ height: '100vh' }}
+          className='my-12'
           justify='space-around'
           align='middle'>
           <Col>

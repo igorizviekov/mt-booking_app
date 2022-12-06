@@ -7,11 +7,10 @@ enum Rounded {
 
 /**
  * Types for Input
- * @param {string} border - Set border radius
- * @param {boolean} dark - Dark theme
- * @param {boolean} disabled - Disable input
- * @param {string} error - Set the error
- * @param {function} inputValueReciever - Function that recieves input value
+ * @param {border} string - Set border for the input
+ * @param {dark} boolean - Set dark theme
+ * @param {error} boolean - Set error
+ * @param {errorMessage} string - Set error message
  */
 
 export interface IInputProps extends HTMLAttributes<HTMLInputElement> {

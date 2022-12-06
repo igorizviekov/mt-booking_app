@@ -12,10 +12,10 @@
 [X] Cookies & Login Sessions<br />
 [X] localStorage vs. sessionStorage vs. cookies<br />
 [Х] X-CSRF Token<br />
-[ ] The UserProfile React Component<br />
-[ ] The UserListings & UserBookings React Components<br />
-[ ] ListingDetails & ListingBookings<br />
-[ ] The ListingCreateBooking React Component<br />
+[X] The UserProfile React Component<br />
+[X] The UserListings & UserBookings React Components<br />
+[X] ListingDetails & ListingBookings<br />
+[X] The ListingCreateBooking React Component<br />
 [ ] Building the UI of the Homepage<br />
 [ ] Google's Geocoding API<br />
 [ ] Location-based searching for listings<br />
