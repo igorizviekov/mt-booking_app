@@ -3,9 +3,10 @@ import { LogoutButton } from '../LogoutButton';
 import { gapi } from 'gapi-script';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../store/hooks';
+import { selectAuthedUserName } from '../../store/selectors/auth';
 
 export const OAuthComponent = () => {
-  const { authData } = useAppSelector((state) => state.auth);
+  const authData = useAppSelector(selectAuthedUserName);
 
   useEffect(() => {
     function start() {
