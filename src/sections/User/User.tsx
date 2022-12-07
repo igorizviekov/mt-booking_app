@@ -13,7 +13,7 @@ import { useStoreState } from '../../store/hooks';
 import { IListingProps } from '../Listings/listings.types.d';
 import { useQuery } from '../../lib/api';
 import { BookingCard } from '../../components';
-import { ListingComponent } from '../../components/ListingComponent';
+import { ListingItem } from '../../components/ListingItem';
 
 export const User = () => {
   const { authData } = useStoreState((state) => state.auth);
@@ -59,7 +59,7 @@ export const User = () => {
               ) : (
                 <List>
                   {data?.map((e) => {
-                    return <ListingComponent {...e} />;
+                    return <ListingItem {...e} />;
                   })}
                 </List>
               )}

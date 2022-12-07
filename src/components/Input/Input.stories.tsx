@@ -1,12 +1,12 @@
-import { InputComponent } from './InputComponent';
+import { Input } from './Input';
 import { Meta, Story } from '@storybook/react';
 
 export default {
   title: 'Form/Input',
-  component: InputComponent,
+  component: Input,
 } as Meta;
 
-const Template: Story = (args: any) => <InputComponent {...args} />;
+const Template: Story = (args: any) => <Input {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   border: 'normal',
