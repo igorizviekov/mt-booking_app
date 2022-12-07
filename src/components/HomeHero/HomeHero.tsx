@@ -1,8 +1,10 @@
 import Search from 'antd/es/input/Search';
 import { Content } from 'antd/es/layout/layout';
+import React from 'react';
 import { HomeHeroCard } from '../HomeHeroCard';
+import { HomeHeroProps } from './homeHero.types';
 
-export const HomeHero = () => {
+export const HomeHero: React.FC<HomeHeroProps> = ({ onSearch }) => {
   return (
     <Content className='p-14'>
       <div>
@@ -15,6 +17,7 @@ export const HomeHero = () => {
           size='large'
           enterButton
           placeholder='Search "San Fransisco"'
+          onSearch={onSearch}
         />
       </div>
       <div className='flex items-center justify-between mt-20'>

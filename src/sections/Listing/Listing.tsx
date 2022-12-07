@@ -9,6 +9,7 @@ import {
 } from '../../components';
 import { useQuery } from '../../lib/api';
 import { IListingProps } from '../Listings/listings.types';
+import { NotFound } from '../NotFound';
 
 export const Listing = () => {
   const id = useParams().id!;
@@ -18,7 +19,7 @@ export const Listing = () => {
     (e) => e.id === id,
   )[0];
 
-  return (
+  return listingData ? (
     <Content className='flex items-center justify-center min-h-max my-12'>
       {error ? (
         <Alert
@@ -41,5 +42,7 @@ export const Listing = () => {
         </div>
       )}
     </Content>
+  ) : (
+    <NotFound />
   );
 };
