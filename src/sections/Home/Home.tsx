@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import React from 'react';
-import { HomeHero, HomeHeroCard } from '../../components';
+import { HomeHero, HomeHeroCard, HomeListings } from '../../components';
 import { displayErrorMessage } from '../../lib/utils';
 
 export const Home = () => {
@@ -47,6 +47,7 @@ export const Home = () => {
           </div>
         </div>
       </Content>
+      <HomeListings />
     </div>
   );
 };

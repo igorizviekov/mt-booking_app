@@ -8,7 +8,6 @@ import {
   Spin,
   List,
 } from 'antd';
-import { Content } from 'antd/es/layout/layout';
 import { useStoreState } from '../../store/hooks';
 import { IListingProps } from '../Listings/listings.types.d';
 import { useQuery } from '../../lib/api';

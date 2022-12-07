@@ -13,3 +13,4 @@ export * from './ListingCreateBooking';
 export * from './Button';
 export * from './HomeHero';
 export * from './HomeHeroCard';
+export * from './HomeListings';

@@ -19,28 +19,38 @@ export const Listing = () => {
     (e) => e.id === id,
   )[0];
 
-  return listingData ? (
-    <Content className='flex items-center justify-center min-h-max my-12'>
-      {error ? (
+  if (loading) {
+    return (
+      <Content className='flex items-center justify-center min-h-max my-12'>
+        <Spin size='large' />
+      </Content>
+    );
+  }
+
+  if (error) {
+    return (
+      <Content className='flex items-center justify-center min-h-max my-12'>
         <Alert
           message='Error'
           type='error'
           description='Something went wrong, try again later ￣\_(0_o)_/￣'
           showIcon></Alert>
-      ) : loading ? (
-        <Spin size='large' />
-      ) : (
-        <div className='flex w-5/6 justify-between'>
-          <div>
-            <ListingDetails
-              data={listingData}
-              id={id}
-            />
-            <ListingBookings />
-          </div>
-          <ListingCreateBooking price={listingData!.price} />
+      </Content>
+    );
+  }
+
+  return listingData ? (
+    <Content className='flex items-center justify-center min-h-max my-12'>
+      <div className='flex w-5/6 justify-between'>
+        <div>
+          <ListingDetails
+            data={listingData}
+            id={id}
+          />
+          <ListingBookings />
         </div>
-      )}
+        <ListingCreateBooking price={listingData!.price} />
+      </div>
     </Content>
   ) : (
     <NotFound />
