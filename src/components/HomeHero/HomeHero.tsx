@@ -20,22 +20,26 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ onSearch }) => {
           onSearch={onSearch}
         />
       </div>
-      <div className='flex items-center justify-between mt-20'>
+      <div className='flex items-center justify-between mt-20 space-x-5'>
         <HomeHeroCard
+          href='dubai'
           title='Dubai'
           image='https://i2.wp.com/www.archute.com/wp-content/uploads/2016/01/beautiful-view-of-burj-khalifa.jpg'
         />
         <HomeHeroCard
+          href='los angeles'
           title='Los Angeles'
           image='https://thumbs.dreamstime.com/b/godzina-szczytu-ruch-drogowy-baltimore-maryland-52268675.jpg'
         />
         <HomeHeroCard
+          href='london'
           title='London'
           // eslint-disable-next-line max-len
           image='https://images.unsplash.com/photo-1545853332-147d5073187e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
         />
         <HomeHeroCard
-          title='Torronto'
+          href='toronto'
+          title='Toronto'
           image='https://de-academic.com/pictures/dewiki/84/Toronto_-_ON_-_CN_Tower_Illuminiert.jpg'
         />
       </div>
