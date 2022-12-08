@@ -40,7 +40,7 @@ export const BookingCard: React.FC<IListingProps> = ({
             value={rating}
             disabled
           />
-          <span>Price: ${price}$</span>
+          <span>Price: ${price}</span>
         </div>
       </Card>
     </div>

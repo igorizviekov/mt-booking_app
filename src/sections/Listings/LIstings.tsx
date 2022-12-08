@@ -8,10 +8,6 @@ import { useEffect } from 'react';
 import { BookingCard } from '../../components';
 import { Content } from 'antd/es/layout/layout';
 
-interface ListingsProps {
-  title: string;
-}
-
 export const Listings = () => {
   const [{ loading, data, error }] = useQuery<IListingProps[]>();
   const [listings, setListings] = useState<null | IListingProps[]>(null);
@@ -33,7 +29,7 @@ export const Listings = () => {
 
   if (error) {
     return (
-      <Content className='flex items-center justify-center'>
+      <Content className='flex items-center justify-center p-14'>
         <Alert
           message='Error'
           type='error'
@@ -45,7 +41,7 @@ export const Listings = () => {
 
   if (loading) {
     return (
-      <Content className='flex items-center justify-center'>
+      <Content className='flex items-center justify-center p-14'>
         <Spin size='large' />
       </Content>
     );
@@ -55,12 +51,18 @@ export const Listings = () => {
     <>
       {listings ? (
         listings?.length ? (
-          listings?.map((e) => <BookingCard {...e} />)
+          <Content className='flex items-center p-14 space-x-5'>
+            {listings?.map((e) => (
+              <BookingCard {...e} />
+            ))}
+          </Content>
         ) : (
-          <h2>no items</h2>
+          <Content className='flex items-center justify-center p-14'>
+            <h2>no items</h2>
+          </Content>
         )
       ) : (
-        <Content className='flex items-center justify-center'>
+        <Content className='flex items-center justify-center p-14'>
           <Spin size='large' />
         </Content>
       )}

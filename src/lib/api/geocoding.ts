@@ -24,8 +24,8 @@ export const geocoding = {
     listings: Array<IListingProps>,
   ): Promise<Array<IListingProps>> {
     const res: Array<IListingProps> = [];
-    for (const listing of listings) {
-      for (const address of addresses) {
+    for (const address of addresses) {
+      for (const listing of listings) {
         if (
           this.checkStringIntersection(listing.address, address.display_name)
         ) {
