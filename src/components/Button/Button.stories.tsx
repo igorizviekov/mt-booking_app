@@ -1,20 +1,18 @@
-import { ButtonComponent } from './ButtonComponent';
+import { Button } from './Button';
 import { Meta, Story } from '@storybook/react';
 
 export default {
   title: 'Button',
-  component: ButtonComponent,
+  component: Button,
 } as Meta;
 
-const Template: Story = (args: any) => (
-  <ButtonComponent {...args}>Hello World!</ButtonComponent>
-);
+const Template: Story = (args: any) => <Button {...args}>Hello World!</Button>;
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
+  styleType: 'primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  secondary: true,
+  styleType: 'secondary',
 };

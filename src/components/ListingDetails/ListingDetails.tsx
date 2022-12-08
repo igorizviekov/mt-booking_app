@@ -1,7 +1,7 @@
 import { Card, Avatar, Divider } from 'antd';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { useAppSelector } from '../../store/hooks';
-import { IListingDetailsProps } from './listingDetaild.types';
+import { IListingDetailsProps } from './listingDetails.types';
 
 export const ListingDetails: React.FC<IListingDetailsProps> = ({
   data,
@@ -54,16 +54,20 @@ export const ListingDetails: React.FC<IListingDetailsProps> = ({
 
         <div className='text-2xl ml-4'>{authData.profileObj.name}</div>
       </div>
-      <Divider />
-      <div className='flex flex-col'>
-        <span
-          className='text-2xl
-        font-semibold
-        mb-4'>
-          About this space
-        </span>
-        <span>{data!.description}</span>
-      </div>
+      {data?.description && (
+        <>
+          <Divider />
+          <div className='flex flex-col'>
+            <span
+              className='text-2xl
+                        font-semibold
+                        mb-4'>
+              About this space
+            </span>
+            <span>{data!.description}</span>
+          </div>
+        </>
+      )}
     </Card>
   );
 };

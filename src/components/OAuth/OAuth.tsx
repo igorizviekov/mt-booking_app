@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import { selectAuthedUserName } from '../../store/selectors/auth';
 
-export const OAuthComponent = () => {
+export const OAuth = () => {
   const authData = useAppSelector(selectAuthedUserName);
 
   useEffect(() => {
