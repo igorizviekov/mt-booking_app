@@ -8,14 +8,15 @@ import {
   Spin,
   List,
 } from 'antd';
-import { useStoreState } from '../../store/hooks';
+
+import { useAppSelector } from '../../store/hooks';
 import { IListingProps } from '../Listings/listings.types.d';
 import { useQuery } from '../../lib/api';
 import { BookingCard } from '../../components';
 import { ListingItem } from '../../components/ListingItem';
 
 export const User = () => {
-  const { authData } = useStoreState((state) => state.auth);
+  const { authData } = useAppSelector((state) => state.auth);
   const [{ loading, data, error }] = useQuery<IListingProps[]>();
 
   return (

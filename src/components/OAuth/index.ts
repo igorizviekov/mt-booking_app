@@ -1,1 +1,1 @@
-export * from './OAuthComponent';
+export * from './OAuth';

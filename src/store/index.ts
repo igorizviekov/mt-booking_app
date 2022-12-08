@@ -1,20 +1,31 @@
-import { action, createStore } from 'easy-peasy';
-import { IAuthModel } from './store.types';
-import { persist } from 'easy-peasy';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import authReducer from './reducers/AuthSlice';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
 
-export const store = createStore<IAuthModel>(
-  persist(
-    {
-      auth: { authData: null },
-      login: action((state, payload) => {
-        state.auth.authData = payload;
+const rootReducer = combineReducers({
+  auth: authReducer,
+});
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const setupStore = () => {
+  return configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
       }),
-      logout: action((state) => {
-        state.auth.authData = null;
-      }),
-    },
-    {
-      storage: 'localStorage',
-    },
-  ),
-);
+  });
+};
+
+export const store = setupStore();
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore['dispatch'];
