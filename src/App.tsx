@@ -38,6 +38,10 @@ function App() {
                 element={<Listings title='Houses' />}
               />
               <Route
+                path='/listings/'
+                element={<Listings title='Houses' />}
+              />
+              <Route
                 path='/host'
                 element={<Host />}
               />

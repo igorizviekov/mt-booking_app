@@ -10,7 +10,7 @@ import {
 } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import { useStoreState } from '../../store/hooks';
-import { IListingProps } from '../Listings/listings.types.d';
+import { IListingProps } from '../Listing/listings.types';
 import { useQuery } from '../../lib/api';
 import { BookingCard } from '../../components';
 import { ListingItem } from '../../components/ListingItem';
