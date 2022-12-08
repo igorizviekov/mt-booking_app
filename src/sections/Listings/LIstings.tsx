@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { server, useQuery } from '../../lib/api/index';
+import { useQuery } from '../../lib/api/index';
 import { IListingProps } from '../Listing/listings.types';
-import { Spin, Row, Col, Alert, Skeleton } from 'antd';
+import { Spin, Alert } from 'antd';
 import { useParams } from 'react-router-dom';
 import { geocoding } from '../../lib/api/geocoding';
 import { useEffect } from 'react';
@@ -12,7 +12,7 @@ interface ListingsProps {
   title: string;
 }
 
-export const Listings: React.FC<ListingsProps> = ({ title }) => {
+export const Listings = () => {
   const [{ loading, data, error }] = useQuery<IListingProps[]>();
   const [listings, setListings] = useState<null | IListingProps[]>(null);
   const location: string | undefined = useParams().location;
@@ -31,13 +31,9 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
     fetchData();
   }, [data]);
 
-  useEffect(() => {
-    console.log(!!listings);
-  });
-
   if (error) {
     return (
-      <Content className='flex items-center justify-center min-h-max my-12'>
+      <Content className='flex items-center justify-center'>
         <Alert
           message='Error'
           type='error'
@@ -49,26 +45,25 @@ export const Listings: React.FC<ListingsProps> = ({ title }) => {
 
   if (loading) {
     return (
-      <Content className='flex items-center justify-center min-h-max my-12'>
+      <Content className='flex items-center justify-center'>
         <Spin size='large' />
       </Content>
     );
   }
+
   return (
-    <Content className='flex items-center justify-between min-h-max my-12'>
+    <>
       {listings ? (
-        listings.length ? (
-          <>
-            {listings?.map((e) => {
-              return <BookingCard {...e} />;
-            })}
-          </>
+        listings?.length ? (
+          listings?.map((e) => <BookingCard {...e} />)
         ) : (
           <h2>no items</h2>
         )
       ) : (
-        <Spin size='large' />
+        <Content className='flex items-center justify-center'>
+          <Spin size='large' />
+        </Content>
       )}
-    </Content>
+    </>
   );
 };

@@ -4,7 +4,6 @@ export const geocoding = {
   getItemCountry(item: string): string {
     return item.split(', ')[item.split(', ').length - 1];
   },
-
   checkStringIntersection(str1: string, str2: string): boolean {
     const splitStr1 = str1.split(', ').filter((e) => !!e);
     const splitStr2 = str2.split(', ').filter((e) => !!e);
