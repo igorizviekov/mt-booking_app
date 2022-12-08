@@ -16,7 +16,7 @@
 [X] The UserListings & UserBookings React Components<br />
 [X] ListingDetails & ListingBookings<br />
 [X] The ListingCreateBooking React Component<br />
-[ ] Building the UI of the Homepage<br />
+[X] Building the UI of the Homepage<br />
 [ ] Google's Geocoding API<br />
 [ ] Location-based searching for listings<br />
 [ ] Building the Listings page<br />
