@@ -1,6 +1,6 @@
 import { Avatar, Card, Rate } from 'antd';
 import React from 'react';
-import { IListingProps } from '../../sections/Listings/listings.types';
+import { IListingProps } from '../../sections/Listing/listings.types';
 
 export const BookingCard: React.FC<IListingProps> = ({
   id,

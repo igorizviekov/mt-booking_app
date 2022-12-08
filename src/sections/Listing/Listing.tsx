@@ -8,7 +8,7 @@ import {
   ListingDetails,
 } from '../../components';
 import { useQuery } from '../../lib/api';
-import { IListingProps } from '../Listings/listings.types';
+import { IListingProps } from './listings.types';
 
 export const Listing = () => {
   const id = useParams().id!;

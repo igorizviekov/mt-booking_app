@@ -1,4 +1,4 @@
-import { IListingProps } from '../../sections/Listings/listings.types';
+import { IListingProps } from '../../sections/Listing/listings.types';
 
 /**
  * Types for ListingDetails

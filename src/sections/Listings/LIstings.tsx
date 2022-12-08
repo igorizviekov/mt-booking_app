@@ -1,83 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { server, useQuery } from '../../lib/api/index';
-import { IListingProps } from './listings.types.d';
-import { List, Button, Spin, Row, Col, Alert, Avatar, Skeleton } from 'antd';
-import { Typography } from '../../components';
+import { IListingProps } from '../Listing/listings.types';
+import { Spin, Row, Col, Alert, Skeleton } from 'antd';
+import { useParams } from 'react-router-dom';
+import { geocoding } from '../../lib/api/geocoding';
+import { useEffect } from 'react';
+import { BookingCard } from '../../components';
+import { Content } from 'antd/es/layout/layout';
 
 interface ListingsProps {
   title: string;
 }
 
 export const Listings: React.FC<ListingsProps> = ({ title }) => {
-  const [{ loading, data, error }, refetch] = useQuery<IListingProps[]>();
+  const [{ loading, data, error }] = useQuery<IListingProps[]>();
+  const [listings, setListings] = useState<null | IListingProps[]>(null);
+  const location: string | undefined = useParams().location;
 
-  const deleteListing = async (id: string) => {
-    await server.delete(id);
-    refetch();
-  };
+  useEffect(() => {
+    async function fetchData() {
+      if (data && location) {
+        return setListings(
+          await geocoding.getMatchesForRequest(location, data),
+        );
+      }
+
+      setListings(data);
+    }
+
+    fetchData();
+  }, [data]);
+
+  useEffect(() => {
+    console.log(!!listings);
+  });
 
   if (error) {
     return (
-      <Alert
-        message='Error'
-        type='error'
-        description='Something went wrong, try again later ￣\_(0_o)_/￣'
-        showIcon></Alert>
+      <Content className='flex items-center justify-center min-h-max my-12'>
+        <Alert
+          message='Error'
+          type='error'
+          description='Something went wrong, try again later ￣\_(0_o)_/￣'
+          showIcon></Alert>
+      </Content>
     );
   }
 
   if (loading) {
     return (
-      <>
-        <Row
-          className='my-12'
-          justify='space-around'
-          align='middle'>
-          <Col>
-            <Spin size='large' />
-          </Col>
-        </Row>
-      </>
+      <Content className='flex items-center justify-center min-h-max my-12'>
+        <Spin size='large' />
+      </Content>
     );
   }
   return (
-    <div className='p-4 dark:bg-neutral-600'>
-      <Typography
-        size={50}
-        label={title}
-      />
-      <List
-        className='bg-white lg:w-1/2'
-        bordered
-        dataSource={data ? data : []}
-        style={{ boxShadow: 'var(--shadow-1)' }}
-        renderItem={(elem) => {
-          return (
-            <List.Item
-              actions={[
-                <Button onClick={() => deleteListing(elem.id)}>Delete</Button>,
-              ]}>
-              <Skeleton
-                avatar
-                active
-                loading={false}>
-                <List.Item.Meta
-                  key={elem.id}
-                  title={elem.title}
-                  description={elem.address}
-                  avatar={
-                    <Avatar
-                      src={elem.image}
-                      shape='square'
-                      size={80}
-                    />
-                  }
-                />
-              </Skeleton>
-            </List.Item>
-          );
-        }}
-      />
-    </div>
+    <Content className='flex items-center justify-between min-h-max my-12'>
+      {listings ? (
+        listings.length ? (
+          <>
+            {listings?.map((e) => {
+              return <BookingCard {...e} />;
+            })}
+          </>
+        ) : (
+          <h2>no items</h2>
+        )
+      ) : (
+        <Spin size='large' />
+      )}
+    </Content>
   );
 };

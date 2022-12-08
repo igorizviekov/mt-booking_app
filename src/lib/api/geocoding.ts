@@ -1,18 +1,17 @@
-import { IListingProps } from '../../sections/Listings/listings.types.d';
+import { IListingProps } from '../../sections/Listing/listings.types';
 
 export const geocoding = {
-  checkStringIntersection(str1: string, str2: string): boolean {
-    const sep = ['/', ',', ' '];
-    const reg = sep
-      .map((e) => (e.match(/[a-zA-Z0-9]/) ? e : `\\${e}`))
-      .join('|');
+  getItemCountry(item: string): string {
+    return item.split(', ')[item.split(', ').length - 1];
+  },
 
-    const splitStr1 = str1.split(new RegExp(reg)).filter((e) => !!e);
-    const splitStr2 = str2.split(new RegExp(reg)).filter((e) => !!e);
+  checkStringIntersection(str1: string, str2: string): boolean {
+    const splitStr1 = str1.split(', ').filter((e) => !!e);
+    const splitStr2 = str2.split(', ').filter((e) => !!e);
 
     for (const str1El of splitStr1) {
       for (const str2El of splitStr2) {
-        if (str1El === str2El) {
+        if (str1El.toLowerCase() === str2El.toLocaleLowerCase()) {
           return true;
         }
       }
@@ -21,17 +20,25 @@ export const geocoding = {
     return false;
   },
 
-  searchIntersections(
+  async searchIntersections(
     addresses: Array<any>,
     listings: Array<IListingProps>,
-  ): Array<IListingProps> {
+  ): Promise<Array<IListingProps>> {
     const res: Array<IListingProps> = [];
     for (const listing of listings) {
       for (const address of addresses) {
         if (
           this.checkStringIntersection(listing.address, address.display_name)
         ) {
-          res.push(listing);
+          if (
+            res.length &&
+            this.getItemCountry(res[res.length - 1].address) !==
+              this.getItemCountry(address.display_name)
+          ) {
+            continue;
+          } else {
+            res.push(listing);
+          }
         }
       }
     }
