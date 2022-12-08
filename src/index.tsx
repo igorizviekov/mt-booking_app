@@ -4,11 +4,19 @@ import App from './App';
 import 'antd/dist/reset.css';
 import './styles/index.scss';
 import { store } from './store/index';
-import { StoreProvider } from 'easy-peasy';
+import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
+
+const persistor = persistStore(store);
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
-  <StoreProvider store={store}>
-    <App />
-  </StoreProvider>,
+  <Provider store={store}>
+    <PersistGate
+      loading={null}
+      persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>,
 );

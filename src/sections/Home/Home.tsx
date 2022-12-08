@@ -1,34 +1,53 @@
+import { Button } from 'antd';
+import { Content } from 'antd/es/layout/layout';
 import React from 'react';
-import './index.scss';
-import { Button } from '../../components';
+import { HomeHero, HomeHeroCard, HomeListings } from '../../components';
+import { displayErrorMessage } from '../../lib/utils';
 
 export const Home = () => {
+  const onSearch = (value: string) => {
+    const trimmedValue = value.trim();
+    if (trimmedValue) {
+      window.location.href = '/listing/' + trimmedValue;
+    } else {
+      displayErrorMessage('Error', 'Please enter valid value');
+    }
+  };
   return (
-    <div className='test-block'>
-      <aside className='test-block__list'>
-        <a
-          href='#'
-          className='test-block__link'>
-          test 1
-        </a>
-        <a
-          href='#'
-          className='test-block__link test-block__link--hover'>
-          test 2
-        </a>
-        <a
-          href='#'
-          className='test-block__link'>
-          test 3
-        </a>
-      </aside>
-      <article className='test-block__text'>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore fuga
-        cupiditate, expedita neque eius reiciendis in iusto natus saepe, culpa
-        voluptas nostrum, id quo unde odit facilis corporis minima amet.
-      </article>
-      <Button styleType={'primary'}>Primary</Button>
-      <Button>Secondary</Button>
+    <div>
+      <HomeHero onSearch={onSearch} />
+      <Content className='p-14'>
+        <div className='flex items-center flex-col'>
+          <h2 className='text-4xl font-bold mb-10'>
+            Your guide for all things rental
+          </h2>
+          <a href='/listings/united%20states'>
+            <Button type='primary'>Popular listings in USA</Button>
+          </a>
+        </div>
+      </Content>
+      <Content className='p-14'>
+        <div className='flex flex-col'>
+          <h2 className='text-4xl font-bold mb-10 text-center'>
+            Listings of any kind
+          </h2>
+          <div className='flex justify-between space-x-5'>
+            <HomeHeroCard
+              href='toronto'
+              wide
+              title='Toronto'
+              image='https://de-academic.com/pictures/dewiki/84/Toronto_-_ON_-_CN_Tower_Illuminiert.jpg'
+            />
+            <HomeHeroCard
+              href='cancun'
+              wide
+              title='Cancún'
+              image='https://worldwidevacationsco.com/images/blog/cancun-best-time-to-travel.jpg'
+            />
+          </div>
+        </div>
+      </Content>
+      <HomeListings />
     </div>
   );
 };

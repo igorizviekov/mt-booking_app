@@ -1,9 +1,10 @@
 import { Menu } from 'antd';
 import { AiOutlineLogin } from 'react-icons/ai';
-import { useStoreState } from '../../store/hooks';
+import { useAppSelector } from '../../store/hooks';
+import { selectAuthedUserName } from '../../store/selectors/auth';
 
 export const MenuItem = () => {
-  const { authData } = useStoreState((state) => state.auth);
+  const authData = useAppSelector(selectAuthedUserName);
   const items = [
     {
       label: 'Host',
