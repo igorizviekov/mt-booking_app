@@ -5,7 +5,7 @@ import { Spin, Alert } from 'antd';
 import { useParams } from 'react-router-dom';
 import { geocoding } from '../../lib/api/geocoding';
 import { useEffect } from 'react';
-import { BookingCard } from '../../components';
+import { BookingCard, ListingsFilter } from '../../components';
 import { Content } from 'antd/es/layout/layout';
 
 export const Listings = () => {
@@ -25,7 +25,7 @@ export const Listings = () => {
     }
 
     fetchData();
-  }, [data]);
+  }, [data, location]);
 
   if (error) {
     return (
@@ -51,10 +51,19 @@ export const Listings = () => {
     <>
       {listings ? (
         listings?.length ? (
-          <Content className='flex items-center p-14 space-x-5'>
-            {listings?.map((e) => (
-              <BookingCard {...e} />
-            ))}
+          <Content className='flex p-14 flex-col space-y-10'>
+            <ListingsFilter
+              listings={listings}
+              setListingsOrder={setListings}
+            />
+            <div className='flex items-center space-x-5'>
+              {listings?.map((e) => (
+                <BookingCard
+                  {...e}
+                  key={e.id}
+                />
+              ))}
+            </div>
           </Content>
         ) : (
           <Content className='flex items-center justify-center p-14'>
