@@ -10,6 +10,7 @@ import { Content } from 'antd/es/layout/layout';
 
 export const Listings = () => {
   const [{ loading, data, error }] = useQuery<IListingProps[]>();
+  const [searchingPlaces, setSearchingPlaces] = useState<Array<string>>([]);
   const [listings, setListings] = useState<null | IListingProps[]>(null);
   const location: string | undefined = useParams().location;
 
@@ -26,6 +27,12 @@ export const Listings = () => {
 
     fetchData();
   }, [data, location]);
+
+  useEffect(() => {
+    if (listings) {
+      setSearchingPlaces(Array.from(new Set(listings?.map((e) => e.location))));
+    }
+  }, [listings]);
 
   if (error) {
     return (
@@ -56,6 +63,11 @@ export const Listings = () => {
               listings={listings}
               setListingsOrder={setListings}
             />
+            {location ? (
+              <div className='text-2xl font-bold'>
+                Searching in: {searchingPlaces.join(', ')}
+              </div>
+            ) : null}
             <div className='flex items-center space-x-5'>
               {listings?.map((e) => (
                 <BookingCard
