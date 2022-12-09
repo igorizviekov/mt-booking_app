@@ -2,11 +2,10 @@ import { LoginButton } from '../LoginButton';
 import { LogoutButton } from '../LogoutButton';
 import { gapi } from 'gapi-script';
 import { useEffect } from 'react';
-import { useAppSelector } from '../../store/hooks';
-import { selectAuthedUserName } from '../../store/selectors/auth';
+import { useTypedSelector } from '../../store/useTypedSelector';
 
 export const OAuth = () => {
-  const authData = useAppSelector(selectAuthedUserName);
+  const { authData } = useTypedSelector((state) => state.auth);
 
   useEffect(() => {
     function start() {

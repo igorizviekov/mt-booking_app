@@ -1,14 +1,14 @@
 import { Card, Avatar, Divider } from 'antd';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
-import { useAppSelector } from '../../store/hooks';
+import { useTypedSelector } from '../../store/useTypedSelector';
 import { IListingDetailsProps } from './listingDetails.types';
 
 export const ListingDetails: React.FC<IListingDetailsProps> = ({
   data,
   id,
 }) => {
-  const { authData } = useAppSelector((state) => state.auth);
-
+  const { authData } = useTypedSelector((state) => state.auth);
+  console.log(authData);
   const { Meta } = Card;
 
   const cutString = (str: string, len: number) => {

@@ -1,13 +1,11 @@
 import { GoogleLogout } from 'react-google-login';
 import { displayErrorMessage, displaySuccessMessage } from '../../lib/utils';
-import { useAppDispatch } from '../../store/hooks';
-import { authSlice } from '../../store/reducers/AuthSlice';
+import { useDispatch } from 'react-redux';
 
 export const LogoutButton = () => {
-  const { logout } = authSlice.actions;
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const onSuccess = () => {
-    dispatch(logout());
+    dispatch({ type: 'LOGOUT' });
     displaySuccessMessage('Success', 'You were successfully logout');
   };
 

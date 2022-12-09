@@ -1,11 +1,7 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import authReducer from './reducers/AuthSlice';
+import { createStore } from 'redux';
+import { rootReducer } from './rootReducer';
+import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
-
-const rootReducer = combineReducers({
-  auth: authReducer,
-});
 
 const persistConfig = {
   key: 'root',
@@ -13,19 +9,5 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-const setupStore = () => {
-  return configureStore({
-    reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: false,
-      }),
-  });
-};
-
-export const store = setupStore();
-
-export type RootState = ReturnType<typeof rootReducer>;
-export type AppStore = ReturnType<typeof setupStore>;
-export type AppDispatch = AppStore['dispatch'];
+export const store = createStore(persistedReducer);
+export const persistor = persistStore(store);

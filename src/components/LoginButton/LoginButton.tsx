@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { Navigate } from 'react-router-dom';
 import { displayErrorMessage, displaySuccessMessage } from '../../lib/utils';
-import { useAppDispatch } from '../../store/hooks';
-import { authSlice } from '../../store/reducers/AuthSlice';
+import { useDispatch } from 'react-redux';
 
 export const LoginButton = () => {
-  const { login } = authSlice.actions;
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const [isRedirect, setIsRedirect] = useState<boolean>(false);
   const onSuccess = (res: any) => {
-    dispatch(login(res));
+    dispatch({ type: 'LOGIN', payload: res });
     setIsRedirect(true);
     displaySuccessMessage('Success!', 'Logged in succesfully');
   };
