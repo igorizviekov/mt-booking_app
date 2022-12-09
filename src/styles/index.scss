@@ -9,3 +9,15 @@
 
   --shadow-1: 10px 10px 63px -8px rgba(169, 169, 169, 0.75);
 }
+
+.ant-btn-primary {
+  background-color: #1677ff !important;
+
+  &:hover {
+    background-color: #40a9ff !important;
+  }
+
+  &:active {
+    background-color: #096dd9 !important;
+  }
+}
