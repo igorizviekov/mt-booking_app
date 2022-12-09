@@ -8,7 +8,7 @@ export const Home = () => {
   const onSearch = (value: string) => {
     const trimmedValue = value.trim();
     if (trimmedValue) {
-      window.location.href = '/listing/' + trimmedValue;
+      window.location.href = '/listings/' + trimmedValue;
     } else {
       displayErrorMessage('Error', 'Please enter valid value');
     }
