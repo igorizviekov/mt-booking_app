@@ -38,7 +38,12 @@ export const HomeListings = () => {
           ?.sort((a, b) => b.price - a.price)
           .slice(0, 5)
           .map((e) => {
-            return <BookingCard {...e} />;
+            return (
+              <BookingCard
+                {...e}
+                key={e.id}
+              />
+            );
           })}
       </div>
     </Content>
