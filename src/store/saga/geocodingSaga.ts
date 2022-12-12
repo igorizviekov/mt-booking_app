@@ -20,7 +20,6 @@ function* addWorker(): Generator {
   try {
     const data: any = yield call(getAddressByRequest);
     yield put(addToStory(data));
-    console.log('df');
   } catch (err) {
     return null;
   }

@@ -15,11 +15,16 @@ export const geocodingReducer = (
 ) => {
   switch (action.type) {
     case GeocodingActionTypes.ADD_TO_STORY:
+      const newHistory =
+        state.searchHistory
+          .map((e) => e.display_name)
+          .indexOf(action.payload.display_name) >= 0
+          ? state.searchHistory
+          : [...state.searchHistory, action.payload];
+
       return {
         ...state,
-        searchHistory: Array.from(
-          new Set([...state.searchHistory, action.payload]),
-        ),
+        searchHistory: newHistory,
       };
     case GeocodingActionTypes.REMOVE_FROM_STORY:
       return {
