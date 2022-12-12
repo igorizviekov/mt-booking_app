@@ -5,14 +5,19 @@ import { MenuItem } from '../../components';
 import Search from 'antd/es/input/Search';
 import { displayErrorMessage } from '../../lib/utils';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { GeocodingActionTypes } from '../../store/types/geocodingReducer.types.d';
+import { fetchStory } from '../../store/reducers/geocodingReducer';
 
 export const AppHeader = () => {
   const { Header } = Layout;
+  const dispatch = useDispatch();
 
   const onSearch = (value: string) => {
     const trimmedValue = value.trim();
     if (trimmedValue) {
-      window.location.href = '/listings/' + trimmedValue;
+      dispatch(fetchStory());
+      //window.location.href = '/listings/' + trimmedValue;
     } else {
       displayErrorMessage('Error', 'Please enter valid value');
     }

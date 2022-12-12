@@ -2,6 +2,7 @@ export enum GeocodingActionTypes {
   ADD_TO_STORY = 'ADD_TO_STORY',
   REMOVE_FROM_STORY = 'REMOVE_FROM_STORY',
   CLEAR_STORY = 'CLEAR_STORY',
+  FETCH_STORY = 'FETCH_STORY',
 }
 
 export interface IGeocodingItem {

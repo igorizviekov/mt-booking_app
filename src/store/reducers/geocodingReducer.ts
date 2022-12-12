@@ -1,8 +1,9 @@
 import {
   GeocodingActionTypes,
   IGeocodingAction,
+  IGeocodingItem,
   IGeocodingState,
-} from '../types/geocodingReducer.typed';
+} from '../types/geocodingReducer.types.d';
 
 const initialState = {
   searchHistory: [],
@@ -16,7 +17,9 @@ export const geocodingReducer = (
     case GeocodingActionTypes.ADD_TO_STORY:
       return {
         ...state,
-        searchHistory: [...state.searchHistory, action.payload],
+        searchHistory: Array.from(
+          new Set([...state.searchHistory, action.payload]),
+        ),
       };
     case GeocodingActionTypes.REMOVE_FROM_STORY:
       return {
@@ -33,4 +36,20 @@ export const geocodingReducer = (
     default:
       return state;
   }
+};
+
+export const addToStory = (newItem: IGeocodingItem) => {
+  return { type: GeocodingActionTypes.ADD_TO_STORY, payload: newItem };
+};
+
+export const fetchStory = () => {
+  return { type: GeocodingActionTypes.FETCH_STORY };
+};
+
+export const removeFromStory = (id: number) => {
+  return { type: GeocodingActionTypes.REMOVE_FROM_STORY, payload: id };
+};
+
+export const clearStory = () => {
+  return { type: GeocodingActionTypes.CLEAR_STORY };
 };
