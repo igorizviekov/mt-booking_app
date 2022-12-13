@@ -1,5 +1,5 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
-import { addToStory, fetchStory } from '../reducers/geocodingReducer';
+import { addToStory } from '../reducers/geocodingReducer';
 import {
   GeocodingActionTypes,
   IGeocodingItem,
