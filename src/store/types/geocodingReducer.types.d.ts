@@ -5,19 +5,20 @@ export enum GeocodingActionTypes {
   FETCH_STORY = 'FETCH_STORY',
 }
 
+interface IBoundingbox {
+  '0': string;
+  '1': string;
+  '2': string;
+  '3': string;
+}
+
 export interface IGeocodingItem {
   place_id: number;
   licence: string;
   powered_by: string;
   osm_type: string;
   osm_id: number;
-  boundingbox: {
-    '0': string;
-    '1': string;
-    '2': string;
-    '3': string;
-  };
-
+  boundingbox: IBoundingbox;
   lat: string;
   lon: string;
   display_name: string;
