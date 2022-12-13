@@ -34,13 +34,10 @@ function App() {
                 element={<Home />}
               />
               <Route
-                path='/listings/:location'
-                element={<Listings />}
-              />
-              <Route
                 path='/listings/'
-                element={<Listings />}
-              />
+                element={<Listings />}>
+                <Route path=':location' />
+              </Route>
               <Route
                 path='/host'
                 element={<Host />}
