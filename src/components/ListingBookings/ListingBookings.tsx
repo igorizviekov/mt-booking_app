@@ -3,9 +3,7 @@ import { ListingBooking } from '../ListingBooking/ListingBooking';
 
 export const ListingBookings = () => {
   return (
-    <Card
-      style={{ width: '500px', height: '370px' }}
-      className='mt-10'>
+    <Card style={{ width: '500px', height: '370px' }}>
       <div className='flex flex-col items-center'>
         <span
           className='text-2xl

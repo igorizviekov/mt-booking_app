@@ -8,7 +8,6 @@ export const ListingDetails: React.FC<IListingDetailsProps> = ({
   id,
 }) => {
   const { authData } = useTypedSelector((state) => state.auth);
-  console.log(authData);
   const { Meta } = Card;
 
   const cutString = (str: string, len: number) => {
