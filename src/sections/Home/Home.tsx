@@ -31,7 +31,7 @@ export const Home = () => {
           <h2 className='text-4xl font-bold mb-10 text-center'>
             Listings of any kind
           </h2>
-          <div className='flex justify-between space-x-5'>
+          <div className='flex space-x-5 justify-center sm:justify-between'>
             <HomeHeroCard
               href='toronto'
               wide
@@ -40,6 +40,7 @@ export const Home = () => {
             />
             <HomeHeroCard
               href='cancun'
+              classList='hidden sm:block'
               wide
               title='Cancún'
               image='https://worldwidevacationsco.com/images/blog/cancun-best-time-to-travel.jpg'

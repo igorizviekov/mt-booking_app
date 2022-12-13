@@ -5,12 +5,18 @@ export const HomeHeroCard: React.FC<IHomeHeroCard> = ({
   image,
   wide,
   href,
+  classList = '',
 }) => {
   return (
     <a
       href={'listings/' + href}
       className={
-        'relative cursor-pointer h-96' + (wide ? ' w-1/2 ' : ' w-1/4')
+        'relative cursor-pointer h-96' +
+        (wide
+          ? ' w-96 sm:w-1/2 '
+          : ' w-96 xl:w-1/3 lg:w-1/2 md:w-3/4 sm:w-96') +
+        ' ' +
+        classList
       }>
       <div>
         <img

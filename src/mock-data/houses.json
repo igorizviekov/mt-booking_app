@@ -99,5 +99,29 @@
     "title": "Large house for the whole family",
     "location": "Illinois",
     "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+  },
+  {
+    "address": "Dubai, 39205, United Arab Emirates",
+    "id": "9",
+    "image": "https://cdn.decoist.com/wp-content/uploads/2017/03/Modern-apartment-units-inside-heritage-building-Down-Under.jpg",
+    "numOfBeds": 2,
+    "numOfGuests": 2,
+    "price": 40,
+    "rating": 4,
+    "title": "Apartments",
+    "location": "Dubai",
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+  },
+  {
+    "address": "Toronto, Golden Horseshoe, Ontario, Canada",
+    "id": "10",
+    "image": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/a3248e49459405.58b58c306a2c1.jpg",
+    "numOfBeds": 1,
+    "numOfGuests": 1,
+    "price": 10,
+    "rating": 2,
+    "title": "Flat",
+    "location": "Toronto",
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
   }
 ]
