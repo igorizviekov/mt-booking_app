@@ -1,3 +1,5 @@
+import { StripeContainer } from '../../components';
+
 export const Host = () => {
-  return <h1>Host</h1>;
+  return <StripeContainer />;
 };
