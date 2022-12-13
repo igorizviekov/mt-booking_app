@@ -35,7 +35,11 @@ function App() {
               />
               <Route
                 path='/listings/:location'
-                element={<Listings title='Houses' />}
+                element={<Listings />}
+              />
+              <Route
+                path='/listings/'
+                element={<Listings />}
               />
               <Route
                 path='/host'

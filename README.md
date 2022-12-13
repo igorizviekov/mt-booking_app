@@ -17,11 +17,11 @@
 [X] ListingDetails & ListingBookings<br />
 [X] The ListingCreateBooking React Component<br />
 [X] Building the UI of the Homepage<br />
-[ ] Google's Geocoding API<br />
-[ ] Location-based searching for listings<br />
-[ ] Building the Listings page<br />
-[ ] Pagination & Filtering in the Listings page<br />
-[ ] Searching for listings from the App Header<br />
+[X] Google's Geocoding API<br />
+[X] Location-based searching for listings<br />
+[X] Building the Listings page<br />
+[X] Pagination & Filtering in the Listings page<br />
+[X] Searching for listings from the App Header<br />
 [ ] Stripe & Stripe Connect<br />
 [ ] Building the UI of the Host page<br />
 [ ] Disabling booked dates on the client<br />

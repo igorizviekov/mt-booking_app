@@ -1,7 +1,7 @@
 import { Alert, Col, List, Row, Spin } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import { useQuery } from '../../lib/api';
-import { IListingProps } from '../../sections/Listings/listings.types';
+import { IListingProps } from '../../sections/Listing/listings.types.d';
 import { BookingCard } from '../BookingCard';
 
 export const HomeListings = () => {

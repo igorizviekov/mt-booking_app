@@ -8,7 +8,7 @@ import {
   ListingDetails,
 } from '../../components';
 import { useQuery } from '../../lib/api';
-import { IListingProps } from '../Listings/listings.types';
+import { IListingProps } from './listings.types.d';
 import { NotFound } from '../NotFound';
 
 export const Listing = () => {
