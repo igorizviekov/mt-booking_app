@@ -6,6 +6,7 @@ export enum GeocodingActionTypes {
 }
 
 interface IBoundingbox {
+
   '0': string;
   '1': string;
   '2': string;
