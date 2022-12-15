@@ -53,11 +53,12 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   };
 
   return (
-    <div className='flex items-center dark:bg-black'>
-      <div className='flex flex-col items-center h-44 w-28 justify-between'>
-        <h4 className='text-center dark:text-white'>Drop your avatar here</h4>
-        <div
-          className='
+    <div className='flex flex-col'>
+      <div className='flex items-center dark:bg-black'>
+        <div className='flex flex-col items-center h-44 w-28 justify-between'>
+          <h4 className='text-center dark:text-white'>Drop your avatar here</h4>
+          <div
+            className='
       w-28
       h-28
       bg-gray-100
@@ -68,30 +69,34 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
       flex
       items-center
       justify-center'
-          onDragStart={dragStartHandler}
-          onDragLeave={dragLeaveHandler}
-          onDragOver={dragStartHandler}
-          onDrop={dropHandler}>
-          {drag ? (
-            <span className='animate-bounce'>Drop here</span>
-          ) : (
-            <BsPlusLg size='2em' />
-          )}
+            onDragStart={dragStartHandler}
+            onDragLeave={dragLeaveHandler}
+            onDragOver={dragStartHandler}
+            onDrop={dropHandler}>
+            {drag ? (
+              <span className='animate-bounce'>Drop here</span>
+            ) : (
+              <BsPlusLg size='2em' />
+            )}
+          </div>
         </div>
+        {image ? (
+          <div className='flex flex-col justify-between ml-10 h-44'>
+            <img
+              src={image.toString()}
+              className='h-32 rounded'
+            />
+            <Button
+              onClick={() => setImage(null)}
+              className='w-24'
+              danger>
+              Delete
+            </Button>
+          </div>
+        ) : null}
       </div>
-      {image ? (
-        <div className='flex flex-col justify-between ml-10 h-44'>
-          <img
-            src={image.toString()}
-            className='h-32 rounded'
-          />
-          <Button
-            onClick={() => setImage(null)}
-            className='w-24'
-            danger>
-            Delete
-          </Button>
-        </div>
+      {fileError ? (
+        <div className='mt-4 text-red-500 font-bold w-64'>{fileError}</div>
       ) : null}
     </div>
   );
