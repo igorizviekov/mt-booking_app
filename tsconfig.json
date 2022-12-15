@@ -12,7 +12,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "lib": ["DOM"]
   },
   "include": ["src"]
 }

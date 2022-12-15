@@ -68,7 +68,8 @@ export const Listings = () => {
                 Searching in: {searchingPlaces.join(', ')}
               </div>
             ) : null}
-            <div className='flex items-center space-x-5'>
+            <div className='flex items-center space-x-5 space-y-5 flex-wrap justify-between'>
+              <div className='hidden' />
               {listings?.map((e) => (
                 <BookingCard
                   {...e}

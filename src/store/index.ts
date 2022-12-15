@@ -1,11 +1,11 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import authReducer from './reducers/AuthSlice';
+import { applyMiddleware, createStore } from 'redux';
+import { rootReducer } from './rootReducer';
+import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
+import createSagaMiddleware from 'redux-saga';
+import { storyWatcher } from './saga/geocodingSaga';
 
-const rootReducer = combineReducers({
-  auth: authReducer,
-});
+const sagaMiddleware = createSagaMiddleware();
 
 const persistConfig = {
   key: 'root',
@@ -13,19 +13,11 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
+export const store = createStore(
+  persistedReducer,
+  applyMiddleware(sagaMiddleware),
+);
 
-const setupStore = () => {
-  return configureStore({
-    reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: false,
-      }),
-  });
-};
+sagaMiddleware.run(storyWatcher);
 
-export const store = setupStore();
-
-export type RootState = ReturnType<typeof rootReducer>;
-export type AppStore = ReturnType<typeof setupStore>;
-export type AppDispatch = AppStore['dispatch'];
+export const persistor = persistStore(store);

@@ -9,7 +9,7 @@ import {
   List,
 } from 'antd';
 
-import { useAppSelector } from '../../store/hooks';
+import { useTypedSelector } from '../../store/useTypedSelector';
 import { IListingProps } from '../Listing/listings.types';
 
 import { useQuery } from '../../lib/api';
@@ -17,7 +17,7 @@ import { BookingCard } from '../../components';
 import { ListingItem } from '../../components/ListingItem';
 
 export const User = () => {
-  const { authData } = useAppSelector((state) => state.auth);
+  const { authData } = useTypedSelector((state) => state.auth);
   const [{ loading, data, error }] = useQuery<IListingProps[]>();
 
   return (
