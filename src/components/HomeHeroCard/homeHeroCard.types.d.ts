@@ -11,4 +11,5 @@ export interface IHomeHeroCard {
   title: string;
   wide?: boolean;
   href: string;
+  classList?: string;
 }
