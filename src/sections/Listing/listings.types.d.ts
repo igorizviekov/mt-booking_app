@@ -11,7 +11,7 @@
  * @param {location} string - Location of the listing item
  * @param {description} string - Description of the listing item
  * @param {checkInDate} date -Check in date of the listing item
- * @param {checkOutDate} date - Check in date of the listing item
+ * @param {checkOutDate} date - Check out date of the listing item
  */
 
 export interface IListingProps {
