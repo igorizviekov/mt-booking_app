@@ -1,1 +1,1 @@
-export * from './ListingComponent';
+export * from './ListingItem';
