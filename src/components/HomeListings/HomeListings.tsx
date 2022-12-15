@@ -33,12 +33,18 @@ export const HomeListings = () => {
   return (
     <Content className='p-14'>
       <h2 className='text-4xl font-bold mb-10 text-center'>Premium listings</h2>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center sm:justify-between justify-center flex-wrap space-x-4 space-y-4'>
+        <div className='hidden' />
         {data
           ?.sort((a, b) => b.price - a.price)
           .slice(0, 5)
           .map((e) => {
-            return <BookingCard {...e} />;
+            return (
+              <BookingCard
+                {...e}
+                key={e.id}
+              />
+            );
           })}
       </div>
     </Content>
