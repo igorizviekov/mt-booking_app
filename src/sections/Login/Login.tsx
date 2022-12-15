@@ -1,8 +1,11 @@
 import { OAuth, Typography } from '../../components';
 import { Row, Card } from 'antd';
 import { Content } from 'antd/es/layout/layout';
+import { useAppSelector } from '../../store/hooks';
+import { selectAuthedUserName } from '../../store/selectors/auth';
 
 export const Login = () => {
+  const authData = useAppSelector(selectAuthedUserName);
   return (
     <Content className='mt-12'>
       <Card className='w-1/2 mx-auto'>
@@ -12,7 +15,11 @@ export const Login = () => {
             align='middle'>
             <Typography
               size={30}
-              label='Auth with Google to continue'
+              label={
+                authData
+                  ? 'You were successfully logged in'
+                  : 'Auth with Google to continue'
+              }
             />
           </Row>
           <Row
