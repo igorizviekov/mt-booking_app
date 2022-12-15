@@ -1,11 +1,10 @@
 import { OAuth, Typography } from '../../components';
 import { Row, Card } from 'antd';
 import { Content } from 'antd/es/layout/layout';
-import { useAppSelector } from '../../store/hooks';
-import { selectAuthedUserName } from '../../store/selectors/auth';
+import { useTypedSelector } from '../../store/useTypedSelector';
 
 export const Login = () => {
-  const authData = useAppSelector(selectAuthedUserName);
+  const { authData } = useTypedSelector((state) => state.auth);
   return (
     <Content className='mt-12'>
       <Card className='w-1/2 mx-auto'>
