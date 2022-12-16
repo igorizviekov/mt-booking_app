@@ -73,6 +73,7 @@ export const Host = () => {
           <InputNumber />
         </Form.Item>
         <DragAndDrop
+          fileTypes={['image/jpeg', 'image/png']}
           image={image}
           setImage={setImage}
           maxFileSize={500000}

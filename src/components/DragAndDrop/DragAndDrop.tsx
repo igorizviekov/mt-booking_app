@@ -6,11 +6,13 @@ interface IDragAndDropProps {
   image: string | ArrayBuffer | null;
   setImage: (a: string | ArrayBuffer | null) => any;
   maxFileSize: number;
+  fileTypes: Array<string>;
 }
 
 export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   image,
   setImage,
+  fileTypes,
   maxFileSize = 10000000000000,
 }) => {
   const [drag, setDrag] = useState<boolean>(false);
@@ -34,12 +36,18 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
     setDrag(false);
   };
 
+  const clickHandler = (e: any) => {
+    e.preventDefault();
+    const files = [...e.dataTransfer.files];
+    console.log(files);
+  };
+
   const dropHandler = async (e: any) => {
     e.preventDefault();
     const files = [...e.dataTransfer.files];
     if (files[0]) {
       if (
-        (files[0].type === 'image/jpeg' || files[0].type === 'image/png') &&
+        fileTypes.indexOf(files[0].type) >= 0 &&
         files[0].size < maxFileSize
       ) {
         const fileBase64 = await toBase64(files[0]);
@@ -74,7 +82,8 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
             onDragStart={dragStartHandler}
             onDragLeave={dragLeaveHandler}
             onDragOver={dragStartHandler}
-            onDrop={dropHandler}>
+            onDrop={dropHandler}
+            onClick={clickHandler}>
             {drag ? (
               <span className='animate-bounce'>Drop here</span>
             ) : (
