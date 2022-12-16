@@ -37,17 +37,19 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   const dropHandler = async (e: any) => {
     e.preventDefault();
     const files = [...e.dataTransfer.files];
-    if (
-      (files[0].type === 'image/jpeg' || files[0].type === 'image/png') &&
-      files[0].size < maxFileSize
-    ) {
-      const fileBase64 = await toBase64(files[0]);
-      setImage(fileBase64);
-      setFileError('');
-    } else {
-      setFileError(
-        `Please send png or jpeg file and that file's size should be ${maxFileSize}`,
-      );
+    if (files[0]) {
+      if (
+        (files[0].type === 'image/jpeg' || files[0].type === 'image/png') &&
+        files[0].size < maxFileSize
+      ) {
+        const fileBase64 = await toBase64(files[0]);
+        setImage(fileBase64);
+        setFileError('');
+      } else {
+        setFileError(
+          `Please send png or jpeg file and that file's size should be ${maxFileSize}`,
+        );
+      }
     }
     setDrag(false);
   };
@@ -56,7 +58,7 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
     <div className='flex flex-col'>
       <div className='flex items-center dark:bg-black'>
         <div className='flex flex-col items-center h-44 w-28 justify-between'>
-          <h4 className='text-center dark:text-white'>Drop your avatar here</h4>
+          <h4 className='text-center dark:text-white'>Drop your image here</h4>
           <div
             className='
       w-28
