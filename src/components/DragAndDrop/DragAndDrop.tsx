@@ -1,6 +1,7 @@
 import { Button } from 'antd';
 import React, { useState } from 'react';
-import { BsPlusLg } from 'react-icons/bs';
+import { BsPencil, BsPlusLg } from 'react-icons/bs';
+import { AiFillDelete } from 'react-icons/ai';
 
 interface IDragAndDropProps {
   image: string | ArrayBuffer | null;
@@ -36,12 +37,6 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
     setDrag(false);
   };
 
-  const clickHandler = (e: any) => {
-    e.preventDefault();
-    const files = [...e.dataTransfer.files];
-    console.log(files);
-  };
-
   const dropHandler = async (e: any) => {
     e.preventDefault();
     const files = [...e.dataTransfer.files];
@@ -65,46 +60,55 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   return (
     <div className='flex flex-col'>
       <div className='flex items-center dark:bg-black'>
-        <div className='flex flex-col items-center h-44 w-28 justify-between'>
-          <h4 className='text-center dark:text-white'>Drop your image here</h4>
-          <div
-            className='
-      w-28
-      h-28
-      bg-gray-100
-      border-xl
-      border-2
-      border-gray-200
-      rounded
-      flex
-      items-center
-      justify-center'
-            onDragStart={dragStartHandler}
-            onDragLeave={dragLeaveHandler}
-            onDragOver={dragStartHandler}
-            onDrop={dropHandler}
-            onClick={clickHandler}>
-            {drag ? (
-              <span className='animate-bounce'>Drop here</span>
-            ) : (
-              <BsPlusLg size='2em' />
-            )}
-          </div>
-        </div>
         {image ? (
-          <div className='flex flex-col justify-between ml-10 h-44'>
+          <div className='flex flex-col items-center h-44 w-28 justify-between'>
             <img
               src={image.toString()}
-              className='h-32 rounded'
+              className='h-28 w-28 rounded'
+              alt='preview'
             />
-            <Button
-              onClick={() => setImage(null)}
-              className='w-24'
-              danger>
-              Delete
-            </Button>
+            <div className='flex justify-between w-28'>
+              <>
+                <Button
+                  onClick={() => setImage(null)}
+                  danger>
+                  <AiFillDelete />
+                </Button>
+                <Button>
+                  <BsPencil />
+                </Button>
+              </>
+            </div>
           </div>
-        ) : null}
+        ) : (
+          <div className='flex flex-col items-center h-44 w-28 justify-between'>
+            <h4 className='text-center dark:text-white'>
+              Drop your image here
+            </h4>
+            <div
+              className='
+                    w-28
+                    h-28
+                    bg-gray-100
+                    border-xl
+                    border-2
+                    border-gray-200
+                    rounded
+                    flex
+                    items-center
+                    justify-center'
+              onDragStart={dragStartHandler}
+              onDragLeave={dragLeaveHandler}
+              onDragOver={dragStartHandler}
+              onDrop={dropHandler}>
+              {drag ? (
+                <span className='animate-bounce'>Drop here</span>
+              ) : (
+                <BsPlusLg size='2em' />
+              )}
+            </div>
+          </div>
+        )}
       </div>
       {fileError ? (
         <div className='mt-4 text-red-500 font-bold w-64'>{fileError}</div>
