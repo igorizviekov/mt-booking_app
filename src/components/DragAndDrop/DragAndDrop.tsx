@@ -1,8 +1,10 @@
 import { Button, Form } from 'antd';
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { BsPencil, BsPlusLg } from 'react-icons/bs';
 import { AiFillDelete } from 'react-icons/ai';
 import { IDragAndDropProps } from './dragAndDrop.types';
+import './style.scss';
+import { ThemeContext } from '../../context/ThemeContext';
 
 export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   image,
@@ -15,6 +17,8 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   const [drag, setDrag] = useState<boolean>(false);
   const [fileError, setFileError] = useState<string>('');
   const inputFile = useRef<HTMLInputElement>(null);
+
+  const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
   const toBase64 = (file: File): Promise<string | ArrayBuffer | null> =>
     new Promise((resolve, reject) => {
@@ -47,7 +51,9 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
         setFileError('');
       } else {
         setFileError(
-          `Please send png or jpeg file and that file's size should be ${maxFileSize}`,
+          `Please send ${fileTypes.join(
+            ', ',
+          )} file and that file's size should be ${maxFileSize}`,
         );
       }
     }
@@ -75,7 +81,9 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
           setFileError('');
         } else {
           setFileError(
-            `Please send png or jpeg file and that file's size should be ${maxFileSize}`,
+            `Please send ${fileTypes.join(
+              ', ',
+            )} file and that file's size should be ${maxFileSize}`,
           );
         }
       }
@@ -86,8 +94,12 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
     <Form.Item
       name='image'
       rules={[{ required: !!required, message: 'Please input your image!' }]}>
-      <div className='flex flex-col'>
-        <div className='flex items-center dark:bg-black'>
+      <div className='drag-and-drop'>
+        <div
+          className={
+            'drag-and-drop__content ' +
+            (darkTheme ? 'drag-and-drop__content--dark' : '')
+          }>
           <input
             onChange={uploadFileOnClick}
             type='file'
@@ -95,13 +107,13 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
             ref={inputFile}
           />
           {image ? (
-            <div className='flex flex-col items-center h-44 w-28 justify-between'>
+            <div className='drag-and-drop__img-wrapper'>
               <img
                 src={image.toString()}
-                className='h-28 w-28 rounded'
+                className='drag-and-drop__image'
                 alt='preview'
               />
-              <div className='flex justify-between w-28'>
+              <div className='drag-and-drop__buttons-wrapper'>
                 <>
                   <Button
                     onClick={() => setImage(null)}
@@ -115,27 +127,23 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
               </div>
             </div>
           ) : (
-            <div className='flex flex-col items-center h-44 w-28 justify-between'>
-              <h4 className='text-center dark:text-white'>{label}</h4>
+            <div className='drag-and-drop__img-wrapper'>
+              <h4
+                className={
+                  'drag-and-drop__label ' +
+                  (darkTheme ? 'drag-and-drop__label--dark' : '')
+                }>
+                {label}
+              </h4>
               <div
-                className='
-                    w-28
-                    h-28
-                    bg-gray-100
-                    border-xl
-                    border-2
-                    border-gray-200
-                    rounded
-                    flex
-                    items-center
-                    justify-center'
+                className='drag-and-drop__input-field'
                 onDragStart={dragStartHandler}
                 onDragLeave={dragLeaveHandler}
                 onDragOver={dragStartHandler}
                 onDrop={dropHandler}
                 onClick={onButtonClick}>
                 {drag ? (
-                  <span className='animate-bounce'>Drop here</span>
+                  <span className='drag-and-drop__bounce'>Drop here</span>
                 ) : (
                   <BsPlusLg size='2em' />
                 )}
@@ -144,7 +152,7 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
           )}
         </div>
         {fileError ? (
-          <div className='mt-4 text-red-500 font-bold w-64'>{fileError}</div>
+          <div className='drag-and-drop__file-error'>{fileError}</div>
         ) : null}
       </div>
     </Form.Item>
