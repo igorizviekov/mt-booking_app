@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, Form } from 'antd';
 import React, { useRef, useState } from 'react';
 import { BsPencil, BsPlusLg } from 'react-icons/bs';
 import { AiFillDelete } from 'react-icons/ai';
@@ -8,6 +8,7 @@ interface IDragAndDropProps {
   setImage: (a: string | ArrayBuffer | null) => any;
   maxFileSize: number;
   fileTypes: Array<string>;
+  required?: boolean;
 }
 
 export const DragAndDrop: React.FC<IDragAndDropProps> = ({
@@ -15,6 +16,7 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   setImage,
   fileTypes,
   maxFileSize = 10000000000000,
+  required,
 }) => {
   const [drag, setDrag] = useState<boolean>(false);
   const [fileError, setFileError] = useState<string>('');
@@ -87,41 +89,44 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   };
 
   return (
-    <div className='flex flex-col'>
-      <div className='flex items-center dark:bg-black'>
-        <input
-          onChange={uploadFileOnClick}
-          type='file'
-          style={{ display: 'none' }}
-          ref={inputFile}
-        />
-        {image ? (
-          <div className='flex flex-col items-center h-44 w-28 justify-between'>
-            <img
-              src={image.toString()}
-              className='h-28 w-28 rounded'
-              alt='preview'
-            />
-            <div className='flex justify-between w-28'>
-              <>
-                <Button
-                  onClick={() => setImage(null)}
-                  danger>
-                  <AiFillDelete />
-                </Button>
-                <Button onClick={onButtonClick}>
-                  <BsPencil />
-                </Button>
-              </>
+    <Form.Item
+      name='image'
+      rules={[{ required: !!required, message: 'Please input your image!' }]}>
+      <div className='flex flex-col'>
+        <div className='flex items-center dark:bg-black'>
+          <input
+            onChange={uploadFileOnClick}
+            type='file'
+            style={{ display: 'none' }}
+            ref={inputFile}
+          />
+          {image ? (
+            <div className='flex flex-col items-center h-44 w-28 justify-between'>
+              <img
+                src={image.toString()}
+                className='h-28 w-28 rounded'
+                alt='preview'
+              />
+              <div className='flex justify-between w-28'>
+                <>
+                  <Button
+                    onClick={() => setImage(null)}
+                    danger>
+                    <AiFillDelete />
+                  </Button>
+                  <Button onClick={onButtonClick}>
+                    <BsPencil />
+                  </Button>
+                </>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className='flex flex-col items-center h-44 w-28 justify-between'>
-            <h4 className='text-center dark:text-white'>
-              Drop your image here
-            </h4>
-            <div
-              className='
+          ) : (
+            <div className='flex flex-col items-center h-44 w-28 justify-between'>
+              <h4 className='text-center dark:text-white'>
+                Drop your image here
+              </h4>
+              <div
+                className='
                     w-28
                     h-28
                     bg-gray-100
@@ -132,23 +137,24 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
                     flex
                     items-center
                     justify-center'
-              onDragStart={dragStartHandler}
-              onDragLeave={dragLeaveHandler}
-              onDragOver={dragStartHandler}
-              onDrop={dropHandler}
-              onClick={onButtonClick}>
-              {drag ? (
-                <span className='animate-bounce'>Drop here</span>
-              ) : (
-                <BsPlusLg size='2em' />
-              )}
+                onDragStart={dragStartHandler}
+                onDragLeave={dragLeaveHandler}
+                onDragOver={dragStartHandler}
+                onDrop={dropHandler}
+                onClick={onButtonClick}>
+                {drag ? (
+                  <span className='animate-bounce'>Drop here</span>
+                ) : (
+                  <BsPlusLg size='2em' />
+                )}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+        {fileError ? (
+          <div className='mt-4 text-red-500 font-bold w-64'>{fileError}</div>
+        ) : null}
       </div>
-      {fileError ? (
-        <div className='mt-4 text-red-500 font-bold w-64'>{fileError}</div>
-      ) : null}
-    </div>
+    </Form.Item>
   );
 };
