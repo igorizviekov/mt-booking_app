@@ -9,6 +9,7 @@ interface IDragAndDropProps {
   maxFileSize: number;
   fileTypes: Array<string>;
   required?: boolean;
+  label: string;
 }
 
 export const DragAndDrop: React.FC<IDragAndDropProps> = ({
@@ -17,6 +18,7 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   fileTypes,
   maxFileSize = 10000000000000,
   required,
+  label,
 }) => {
   const [drag, setDrag] = useState<boolean>(false);
   const [fileError, setFileError] = useState<string>('');
@@ -122,9 +124,7 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
             </div>
           ) : (
             <div className='flex flex-col items-center h-44 w-28 justify-between'>
-              <h4 className='text-center dark:text-white'>
-                Drop your image here
-              </h4>
+              <h4 className='text-center dark:text-white'>{label}</h4>
               <div
                 className='
                     w-28
