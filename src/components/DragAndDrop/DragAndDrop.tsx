@@ -2,15 +2,7 @@ import { Button, Form } from 'antd';
 import React, { useRef, useState } from 'react';
 import { BsPencil, BsPlusLg } from 'react-icons/bs';
 import { AiFillDelete } from 'react-icons/ai';
-
-interface IDragAndDropProps {
-  image: string | ArrayBuffer | null;
-  setImage: (a: string | ArrayBuffer | null) => any;
-  maxFileSize: number;
-  fileTypes: Array<string>;
-  required?: boolean;
-  label: string;
-}
+import { IDragAndDropProps } from './dragAndDrop.types';
 
 export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   image,
