@@ -15,3 +15,11 @@ export const displayErrorMessage = (message: string, description: string) => {
     placement: 'topLeft',
   });
 };
+
+export const displayInfoMessage = (message: string, description: string) => {
+  return notification['info']({
+    message,
+    description,
+    placement: 'topLeft',
+  });
+};

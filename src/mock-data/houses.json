@@ -9,7 +9,9 @@
     "rating": 3.1,
     "title": "Small flat",
     "location": "London",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+    "checkInDate": "Thursday, 18 May 2022 06:02:17",
+    "checkOutDate": "Tuesday, 03 Jun 2023 17:36:20"
   },
 
   {
@@ -35,7 +37,9 @@
     "rating": 4.4,
     "title": "Large house for the whole family",
     "location": "Los Angeles",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+    "checkInDate": "Thursday, 18 May 2022 06:02:17",
+    "checkOutDate": "Tuesday, 03 Jun 2023 17:36:20"
   },
   {
     "address": "671 Lincoln Ave, Winnetka, IL",
@@ -47,7 +51,9 @@
     "rating": 4.4,
     "title": "Large house for the whole family",
     "location": "Illinois",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+    "checkInDate": "Thursday, 18 May 2022 06:02:17",
+    "checkOutDate": "Tuesday, 03 Jun 2023 17:36:20"
   },
 
   {
@@ -73,7 +79,9 @@
     "rating": 4.8,
     "title": "Country house",
     "location": "Baracaldo",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+    "checkInDate": "Thursday, 18 May 2022 06:02:17",
+    "checkOutDate": "Tuesday, 03 Jun 2023 17:36:20"
   },
 
   {
@@ -98,30 +106,8 @@
     "rating": 4.4,
     "title": "Large house for the whole family",
     "location": "Illinois",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
-  },
-  {
-    "address": "Dubai, 39205, United Arab Emirates",
-    "id": "9",
-    "image": "https://cdn.decoist.com/wp-content/uploads/2017/03/Modern-apartment-units-inside-heritage-building-Down-Under.jpg",
-    "numOfBeds": 2,
-    "numOfGuests": 2,
-    "price": 40,
-    "rating": 4,
-    "title": "Apartments",
-    "location": "Dubai",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
-  },
-  {
-    "address": "Toronto, Golden Horseshoe, Ontario, Canada",
-    "id": "10",
-    "image": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/a3248e49459405.58b58c306a2c1.jpg",
-    "numOfBeds": 1,
-    "numOfGuests": 1,
-    "price": 10,
-    "rating": 2,
-    "title": "Flat",
-    "location": "Toronto",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+    "checkInDate": "Thursday, 18 May 2022 06:02:17",
+    "checkOutDate": "Tuesday, 03 Jun 2023 17:36:20"
   }
 ]
