@@ -1,7 +1,7 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Button } from 'antd';
+import { Button, Modal } from 'antd';
 import { IStripeContainerProps } from '../StripeContainer/stripeContainer.types';
 
 export const PaymentForm: React.FC<IStripeContainerProps> = ({
@@ -9,6 +9,7 @@ export const PaymentForm: React.FC<IStripeContainerProps> = ({
   booking,
 }) => {
   const [success, setSuccess] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -20,7 +21,7 @@ export const PaymentForm: React.FC<IStripeContainerProps> = ({
       24
     : 0;
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const { error, paymentMethod } = await stripe!.createPaymentMethod({
       type: 'card',
@@ -40,9 +41,11 @@ export const PaymentForm: React.FC<IStripeContainerProps> = ({
           setSuccess(true);
         }
       } catch (err) {
+        setShowModal(false);
         console.error('Error');
       }
     } else {
+      setShowModal(false);
       console.error(error.message);
     }
   };
@@ -50,9 +53,20 @@ export const PaymentForm: React.FC<IStripeContainerProps> = ({
   return (
     <>
       {!success ? (
-        <form
-          onSubmit={handleSubmit}
-          className='border-gray-100 border-2 rounded-lg p-4'>
+        <form className='border-gray-100 border-2 rounded-lg p-4'>
+          <Modal
+            onCancel={() => setShowModal(false)}
+            open={showModal}
+            footer={[
+              <Button
+                key={1}
+                type='primary'
+                onClick={handleSubmit}>
+                Pay
+              </Button>,
+            ]}>
+            <span>Are you sure you want to book this item for ${price}</span>
+          </Modal>
           <h4 className='text-xl font-bold mb-4'>Make your purchse now!</h4>
           <fieldset>
             <div>
@@ -60,9 +74,11 @@ export const PaymentForm: React.FC<IStripeContainerProps> = ({
             </div>
           </fieldset>
           <Button
+            onClick={() => setShowModal(true)}
             type='primary'
-            className='mt-10'>
-            Pay {bookingTime ? '$' + Math.floor(bookingTime) * price : ''}
+            className='mt-10'
+            disabled={price <= 0}>
+            Pay
           </Button>
         </form>
       ) : (

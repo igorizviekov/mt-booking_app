@@ -25,6 +25,6 @@
 [Х] Stripe & Stripe Connect<br />
 [Х] Building the UI of the Host page<br />
 [ ] Disabling booked dates on the client<br />
-[ ] Creating the Booking Confirmation Modal<br />
+[X] Creating the Booking Confirmation Modal<br />
 [ ] Deploying<br />
 [ ] The NotFound Page
