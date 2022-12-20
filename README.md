@@ -27,4 +27,4 @@
 [ ] Disabling booked dates on the client<br />
 [X] Creating the Booking Confirmation Modal<br />
 [ ] Deploying<br />
-[ ] The NotFound Page
+[X] The NotFound Page
