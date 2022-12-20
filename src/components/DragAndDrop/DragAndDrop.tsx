@@ -1,20 +1,24 @@
-import { Button } from 'antd';
-import React, { useState } from 'react';
-import { BsPlusLg } from 'react-icons/bs';
-
-interface IDragAndDropProps {
-  image: string | ArrayBuffer | null;
-  setImage: (a: string | ArrayBuffer | null) => any;
-  maxFileSize: number;
-}
+import { Button, Form } from 'antd';
+import React, { useContext, useRef, useState } from 'react';
+import { BsPencil, BsPlusLg } from 'react-icons/bs';
+import { AiFillDelete } from 'react-icons/ai';
+import { IDragAndDropProps } from './dragAndDrop.types';
+import './style.scss';
+import { ThemeContext } from '../../context/ThemeContext';
 
 export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   image,
   setImage,
+  fileTypes,
   maxFileSize = 10000000000000,
+  required,
+  label,
 }) => {
   const [drag, setDrag] = useState<boolean>(false);
   const [fileError, setFileError] = useState<string>('');
+  const inputFile = useRef<HTMLInputElement>(null);
+
+  const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
   const toBase64 = (file: File): Promise<string | ArrayBuffer | null> =>
     new Promise((resolve, reject) => {
@@ -37,62 +41,120 @@ export const DragAndDrop: React.FC<IDragAndDropProps> = ({
   const dropHandler = async (e: any) => {
     e.preventDefault();
     const files = [...e.dataTransfer.files];
-    if (
-      (files[0].type === 'image/jpeg' || files[0].type === 'image/png') &&
-      files[0].size < maxFileSize
-    ) {
-      const fileBase64 = await toBase64(files[0]);
-      setImage(fileBase64);
-      setFileError('');
-    } else {
-      setFileError(
-        `Please send png or jpeg file and that file's size should be ${maxFileSize}`,
-      );
+    if (files[0]) {
+      if (
+        fileTypes.indexOf(files[0].type) >= 0 &&
+        files[0].size < maxFileSize
+      ) {
+        const fileBase64 = await toBase64(files[0]);
+        setImage(fileBase64);
+        setFileError('');
+      } else {
+        setFileError(
+          `Please send ${fileTypes.join(
+            ', ',
+          )} file and that file's size should be ${maxFileSize}`,
+        );
+      }
     }
     setDrag(false);
   };
 
+  const onButtonClick = () => {
+    if (inputFile.current) {
+      inputFile.current.click();
+    }
+  };
+
+  const uploadFileOnClick = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    if (inputFile.current) {
+      const filesList = [inputFile.current.files];
+      if (filesList[0]) {
+        const files = filesList[0];
+        if (
+          fileTypes.indexOf(files[0].type) >= 0 &&
+          files[0].size < maxFileSize
+        ) {
+          const fileBase64 = await toBase64(files[0]);
+          setImage(fileBase64);
+          setFileError('');
+        } else {
+          setFileError(
+            `Please send ${fileTypes.join(
+              ', ',
+            )} file and that file's size should be ${maxFileSize}`,
+          );
+        }
+      }
+    }
+  };
+
   return (
-    <div className='flex items-center dark:bg-black'>
-      <div className='flex flex-col items-center h-44 w-28 justify-between'>
-        <h4 className='text-center dark:text-white'>Drop your avatar here</h4>
+    <Form.Item
+      name='image'
+      rules={[{ required: !!required, message: 'Please input your image!' }]}>
+      <div className='drag-and-drop'>
         <div
-          className='
-      w-28
-      h-28
-      bg-gray-100
-      border-xl
-      border-2
-      border-gray-200
-      rounded
-      flex
-      items-center
-      justify-center'
-          onDragStart={dragStartHandler}
-          onDragLeave={dragLeaveHandler}
-          onDragOver={dragStartHandler}
-          onDrop={dropHandler}>
-          {drag ? (
-            <span className='animate-bounce'>Drop here</span>
+          className={
+            'drag-and-drop__content ' +
+            (darkTheme ? 'drag-and-drop__content--dark' : '')
+          }>
+          <input
+            onChange={uploadFileOnClick}
+            type='file'
+            style={{ display: 'none' }}
+            ref={inputFile}
+          />
+          {image ? (
+            <div className='drag-and-drop__img-wrapper'>
+              <img
+                src={image.toString()}
+                className='drag-and-drop__image'
+                alt='preview'
+              />
+              <div className='drag-and-drop__buttons-wrapper'>
+                <>
+                  <Button
+                    onClick={() => setImage(null)}
+                    danger>
+                    <AiFillDelete />
+                  </Button>
+                  <Button onClick={onButtonClick}>
+                    <BsPencil />
+                  </Button>
+                </>
+              </div>
+            </div>
           ) : (
-            <BsPlusLg size='2em' />
+            <div className='drag-and-drop__img-wrapper'>
+              <h4
+                className={
+                  'drag-and-drop__label ' +
+                  (darkTheme ? 'drag-and-drop__label--dark' : '')
+                }>
+                {label}
+              </h4>
+              <div
+                className='drag-and-drop__input-field'
+                onDragStart={dragStartHandler}
+                onDragLeave={dragLeaveHandler}
+                onDragOver={dragStartHandler}
+                onDrop={dropHandler}
+                onClick={onButtonClick}>
+                {drag ? (
+                  <span className='drag-and-drop__bounce'>Drop here</span>
+                ) : (
+                  <BsPlusLg size='2em' />
+                )}
+              </div>
+            </div>
           )}
         </div>
+        {fileError ? (
+          <div className='drag-and-drop__file-error'>{fileError}</div>
+        ) : null}
       </div>
-      {image ? (
-        <div className='flex flex-col justify-between ml-10 h-44'>
-          <img
-            src={image.toString()}
-            className='h-32 rounded'
-          />
-          <Button
-            onClick={() => setImage(null)}
-            className='w-24'
-            danger>
-            Delete
-          </Button>
-        </div>
-      ) : null}
-    </div>
+    </Form.Item>
   );
 };
