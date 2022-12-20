@@ -23,7 +23,7 @@
 [X] Pagination & Filtering in the Listings page<br />
 [X] Searching for listings from the App Header<br />
 [Х] Stripe & Stripe Connect<br />
-[ ] Building the UI of the Host page<br />
+[Х] Building the UI of the Host page<br />
 [ ] Disabling booked dates on the client<br />
 [ ] Creating the Booking Confirmation Modal<br />
 [ ] Deploying<br />
