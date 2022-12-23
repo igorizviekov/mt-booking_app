@@ -1,4 +1,4 @@
-import data from '../../mock-data/houses.json';
+import data from '../../mock-data/houses.js';
 let mockData = data;
 
 export const server = {
