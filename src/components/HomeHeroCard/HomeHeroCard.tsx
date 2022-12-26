@@ -2,9 +2,9 @@ import { IHomeHeroCard } from './homeHeroCard.types';
 
 export const HomeHeroCard: React.FC<IHomeHeroCard> = ({
   title,
-  image,
   wide,
   href,
+  image,
   classList = '',
 }) => {
   return (

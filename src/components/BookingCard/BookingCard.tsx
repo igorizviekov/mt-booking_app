@@ -6,7 +6,6 @@ import { IListingProps } from '../../sections/Listing/listings.types';
 export const BookingCard: React.FC<IListingProps> = ({
   id,
   address,
-  image,
   title,
   price,
   rating,
@@ -51,7 +50,9 @@ export const BookingCard: React.FC<IListingProps> = ({
             className='mx-auto mt-5'
             shape='square'
             size={200}
-            icon={<img src={image} />}
+            icon={
+              <img src={require(`../../mock-data/assets/listings/${id}.jpg`)} />
+            }
           />
         }>
         <Meta

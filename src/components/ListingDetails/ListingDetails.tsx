@@ -20,7 +20,15 @@ export const ListingDetails: React.FC<IListingDetailsProps> = ({
         <Avatar
           shape='square'
           size={500}
-          icon={<img src={data?.image} />}
+          icon={
+            <img
+              src={
+                data
+                  ? require(`../../mock-data/assets/listings/big/${id}.jpg`)
+                  : ''
+              }
+            />
+          }
         />
       }>
       <Meta
