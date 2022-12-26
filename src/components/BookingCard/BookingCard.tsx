@@ -51,7 +51,9 @@ export const BookingCard: React.FC<IListingProps> = ({
             shape='square'
             size={200}
             icon={
-              <img src={require(`../../mock-data/assets/listings/${id}.jpg`)} />
+              <img
+                src={require(`../../mock-data/assets/listings/${id}.avif`)}
+              />
             }
           />
         }>

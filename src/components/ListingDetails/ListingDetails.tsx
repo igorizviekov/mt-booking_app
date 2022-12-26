@@ -24,7 +24,7 @@ export const ListingDetails: React.FC<IListingDetailsProps> = ({
             <img
               src={
                 data
-                  ? require(`../../mock-data/assets/listings/big/${id}.jpg`)
+                  ? require(`../../mock-data/assets/listings/big/${id}.avif`)
                   : ''
               }
             />

@@ -24,25 +24,25 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ onSearch }) => {
         <HomeHeroCard
           href='dubai'
           title='Dubai'
-          image={require('../../mock-data/assets/preview/dubai_preview.jpg')}
+          image={require('../../mock-data/assets/preview/dubai_preview.avif')}
         />
         <HomeHeroCard
           classList='hidden xl:block'
           href='los angeles'
           title='Los Angeles'
-          image={require('../../mock-data/assets/preview/la_preview.jpg')}
+          image={require('../../mock-data/assets/preview/la_preview.avif')}
         />
         <HomeHeroCard
           classList='hidden lg:block'
           href='london'
           title='London'
-          image={require('../../mock-data/assets/preview/london_preview.jpg')}
+          image={require('../../mock-data/assets/preview/london_preview.avif')}
         />
         <HomeHeroCard
           classList='hidden md:block'
           href='toronto'
           title='Toronto'
-          image={require('../../mock-data/assets/preview/toronto_preview.jpg')}
+          image={require('../../mock-data/assets/preview/toronto_preview.avif')}
         />
       </div>
     </Content>

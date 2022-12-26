@@ -1,12 +1,18 @@
+import { any } from 'prop-types';
+import { useEffect } from 'react';
 import { IHomeHeroCard } from './homeHeroCard.types';
 
 export const HomeHeroCard: React.FC<IHomeHeroCard> = ({
   title,
+  image,
   wide,
   href,
-  image,
   classList = '',
 }) => {
+  useEffect(() => {
+    const img = new Image();
+    img.src = image;
+  }, []);
   return (
     <a
       href={'listings/' + href}
