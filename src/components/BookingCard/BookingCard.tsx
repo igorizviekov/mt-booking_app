@@ -24,10 +24,12 @@ export const BookingCard: React.FC<IListingProps> = ({
   };
 
   const clickHandler = () => {
-    if (disabled) {
+    if (disabled && checkOutDate) {
       displayInfoMessage(
         'Can not book this listing!',
-        `Sorry, but this listing is already booked by another user till ${checkOutDate}`,
+        `Sorry, but this listing is already booked by another user till ${new Date(
+          checkOutDate,
+        )}`,
       );
     } else {
       window.location.href = '/listing/' + id;
@@ -53,6 +55,7 @@ export const BookingCard: React.FC<IListingProps> = ({
             icon={
               <img
                 src={require(`../../mock-data/assets/listings/${id}.avif`)}
+                alt='thumbnail'
               />
             }
           />

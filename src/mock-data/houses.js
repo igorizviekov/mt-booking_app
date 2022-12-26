@@ -60,7 +60,7 @@ const data = [
   },
   {
     address: 'Toronto, Golden Horseshoe, Ontario, Canada',
-    id: '1',
+    id: '5',
     numOfBeds: 3,
     numOfGuests: 10,
     price: 25,

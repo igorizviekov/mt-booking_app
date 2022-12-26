@@ -1,4 +1,4 @@
-import { Alert, Col, List, Row, Spin } from 'antd';
+import { Alert, Col, Row, Spin } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import { useQuery } from '../../lib/api';
 import { IListingProps } from '../../sections/Listing/listings.types.d';
@@ -30,6 +30,8 @@ export const HomeListings = () => {
       </>
     );
   }
+
+  console.log(data);
   return (
     <Content className='p-14'>
       <h2 className='text-4xl font-bold mb-10 text-center'>Premium listings</h2>
