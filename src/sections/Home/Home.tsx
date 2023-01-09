@@ -36,14 +36,14 @@ export const Home = () => {
               href='toronto'
               wide
               title='Toronto'
-              image='https://de-academic.com/pictures/dewiki/84/Toronto_-_ON_-_CN_Tower_Illuminiert.jpg'
+              image={require('../../mock-data/assets/preview/toronto_preview_wide.avif')}
             />
             <HomeHeroCard
               href='cancun'
               classList='hidden sm:block'
               wide
               title='Cancún'
-              image='https://worldwidevacationsco.com/images/blog/cancun-best-time-to-travel.jpg'
+              image={require('../../mock-data/assets/preview/cancun_preview_wide.avif')}
             />
           </div>
         </div>

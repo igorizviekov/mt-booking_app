@@ -28,6 +28,7 @@ export const MenuItem = () => {
   return (
     <>
       <Menu
+        className='w-44'
         mode='horizontal'
         items={items}
       />

@@ -24,26 +24,25 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ onSearch }) => {
         <HomeHeroCard
           href='dubai'
           title='Dubai'
-          image='https://i2.wp.com/www.archute.com/wp-content/uploads/2016/01/beautiful-view-of-burj-khalifa.jpg'
+          image={require('../../mock-data/assets/preview/dubai_preview.avif')}
         />
         <HomeHeroCard
           classList='hidden xl:block'
           href='los angeles'
           title='Los Angeles'
-          image='https://thumbs.dreamstime.com/b/godzina-szczytu-ruch-drogowy-baltimore-maryland-52268675.jpg'
+          image={require('../../mock-data/assets/preview/la_preview.avif')}
         />
         <HomeHeroCard
           classList='hidden lg:block'
           href='london'
           title='London'
-          // eslint-disable-next-line max-len
-          image='https://images.unsplash.com/photo-1545853332-147d5073187e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+          image={require('../../mock-data/assets/preview/london_preview.avif')}
         />
         <HomeHeroCard
           classList='hidden md:block'
           href='toronto'
           title='Toronto'
-          image='https://de-academic.com/pictures/dewiki/84/Toronto_-_ON_-_CN_Tower_Illuminiert.jpg'
+          image={require('../../mock-data/assets/preview/toronto_preview.avif')}
         />
       </div>
     </Content>

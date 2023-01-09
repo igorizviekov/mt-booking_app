@@ -85,7 +85,7 @@ export const AppHeader = () => {
         <AutoComplete options={options}>
           <Input.Search
             size='large'
-            style={{ width: '300px' }}
+            className='w-full'
             placeholder='Search "San Fransisco"'
             value={location}
             onSearch={onSearch}
@@ -93,7 +93,7 @@ export const AppHeader = () => {
           />
         </AutoComplete>
       </div>
-      <div className='right-side flex items-center justify-between space-x-5'>
+      <div className='right-side items-center justify-between space-x-5 hidden md:flex '>
         <ToggleTheme />
         <MenuItem />
       </div>

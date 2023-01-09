@@ -1,3 +1,5 @@
+import { any } from 'prop-types';
+import { useEffect } from 'react';
 import { IHomeHeroCard } from './homeHeroCard.types';
 
 export const HomeHeroCard: React.FC<IHomeHeroCard> = ({
@@ -7,6 +9,10 @@ export const HomeHeroCard: React.FC<IHomeHeroCard> = ({
   href,
   classList = '',
 }) => {
+  useEffect(() => {
+    const img = new Image();
+    img.src = image;
+  }, []);
   return (
     <a
       href={'listings/' + href}
